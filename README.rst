@@ -24,13 +24,17 @@ O desenvolvimento foi divido em quatro etapas:
 - Etapa 3 (28/05/2026): Envolve a definição do hardware de controle, desenvolvimento da placa controladora, projeto e refinamento do controlador, além da realização de testes em malha fechada.
 - Etapa 4 (09/07/2026): Envolve a fabricação da PCB, o ajuste  do software, a integração do hardware de controle ao robô e a realização de testes  para validar o desempenho do sistema.
 
-> Equipe
->
-> Amanda Fragoso Franceschini                            
-> João Felipe                       
-> Rafael    
-> Professores: Matheus Leitzke Pinto e Renan Augusto Starke
+Equipe
+======
+- Amanda Fragoso Franceschini
+- João Felipe Camargo Klöppel
+- Rafael Suzin Pires
 
+Professores
+===========
+
+- Matheus Leitzke Pinto
+- Renan Augusto Starke
 
 
 
