@@ -19,50 +19,49 @@ A Etapa 1 do projeto foi dedicada à análise do sistema existente e ao levantam
 
 Para isso, foram analisados os motores utilizados, sendo estes do tipo JGB-520, com velocidade nominal de 333 RPM e alimentação de 12 V, cujas características podem ser vistas abaixo.
 
-.. image:: Img\Tabela-motor.png
-   :width: 300
+.. figure:: Img/Tabela-motor.png
+   :width: 30%
    :align: center
 
-   Figura 1: Características do Motor.
-   
-   Fonte: Adaptado de Mikroelectron (2026).
-..
+   Figura 1 – Características do motor.   
+  
+Fonte: Adaptado de Mikroelectron (2026).
 
 Além disso, foi identificada a utilização de uma ponte H do tipo L298, responsável pelo acionamento dos motores de corrente contínua. A ponte H é um circuito de potência que permite o controle da velocidade e do sentido de rotação dos motores por meio de sinais PWM gerados pelo microcontrolador, fornecendo a corrente necessária para seu funcionamento. As informações podem ser observadas abaixo.
 
-.. image:: Img\Tabela-ponteH.png
-   :width: 300
+.. figure:: Img/Tabela-ponteH.png
+   :width: 30%
    :align: center
    
    Figura 2: Características da Ponte H.
-   
+  
    Fonte: Adaptado de STMicroelectronics (2000 apud PEDROSO; MODESTO, 2017).
-..
+
 O sistema também conta com um sensor do tipo MPU6050, que integra acelerômetro e giroscópio, sendo utilizado para a medição do ângulo de inclinação do pêndulo.
 
-.. image:: Img\MPU6050.jpg
-   :width: 300
+.. figure:: Img/MPU6050.jpg
+   :width: 30%
    :align: center
    
    Figura 3: Acelerômetro e Giroscópio 3 Eixos.
    
    Fonte: Eletrônica Cuiabá (2026).
-..
+
 Ademais, foi identificada a fonte de alimentação do sistema, composta por uma bateria LiPo (polímero de lítio). Esse tipo de bateria apresenta alta densidade de energia, e requer cuidados do manuseio e operação, pois podem pegar fogo. Dessa forma,elas não podem ser perfuradas, amassadas e serem  sobrecarregadas. 
 As características da bateria utilizada podem ser observadas a seguir.
  
- .. image:: Img\bateria.png
-   :width: 300
+.. figure:: Img/bateria.png
+   :width: 30%
    :align: center
   
    Figura 4: Bateria LiPo.
    
    Fonte: VISTRONICA(2026)
-..
+
 Além disso, foi identificado o circuito de medição e condicionamento de sinais, baseado no amplificador operacional LM324,
- responsável pela leitura analógica de grandezas como a carga dos motores e o nível da bateria. 
- Também foi identificado um módulo Bluetooth, que permite a comunicação e o controle remoto do sistema. 
- Por fim, um regulador externo do tipo buck-boost, 
+responsável pela leitura analógica de grandezas como a carga dos motores e o nível da bateria. 
+Também foi identificado um módulo Bluetooth, que permite a comunicação e o controle remoto do sistema. 
+Por fim, um regulador externo do tipo buck-boost, 
 responsável por estabilizar a tensão da bateria e fornecer uma saída de +5 V.
 
 Dentre as técnicas estudadas, destaca-se o controlador PID (Proporcional, Integral e Derivativo), que é muito utilizado em sistemas de controle devido à sua estrutura que é relativamente simples e possui maior facilidade de implementação. Ele atua com base no erro entre o valor desejado (referência) e o valor medido da variável de interesse, sendo composto por três ações distintas:
@@ -97,12 +96,12 @@ Modelagem do Sistema
 A modelagem inicial do sistema foi estabelecida conforme apresentado a seguir:
 
 
- .. image:: Img\pendulo_exemplo.png
-   :width: 300
+.. figure:: Img/pendulo_exemplo.png
+   :width: 30%
    :align: center
   
    Figura 4: Modelo do sistema pêndulo invertido.
-   
+  
    Fonte: UNIVERSITY OF MICHIGAN (2026).
 
 Referências (links/datasheets/livros)
