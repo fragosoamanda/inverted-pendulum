@@ -81,9 +81,10 @@ Por fim, um regulador externo do tipo buck-boost,
 responsável por estabilizar a tensão da bateria e fornecer uma saída de +5 V.
 
 Dentre as técnicas estudadas, destaca-se o controlador PID (Proporcional, Integral e Derivativo), que é muito utilizado em sistemas de controle devido à sua estrutura que é relativamente simples e possui maior facilidade de implementação. Ele atua com base no erro entre o valor desejado (referência) e o valor medido da variável de interesse, sendo composto por três ações distintas:
-A ação proporcional, que reage  ao erro.
-A ação integral, que acumula o erro ao longo do tempo e elimina erros em regime permanente.
-A ação derivativa, que antecipa o comportamento do sistema ao considerar a taxa de variação do erro, que  contribui para maior estabilidade e redução de oscilações.
+
+* A ação proporcional, que reage  ao erro.
+* A ação integral, que acumula o erro ao longo do tempo e elimina erros em regime permanente.
+* A ação derivativa, que antecipa o comportamento do sistema ao considerar a taxa de variação do erro.
 
 Apesar disso, o PID é um controlador monovariável, o que significa que ele atua diretamente sobre apenas uma variável de saída por vez. Em sistemas mais complexos, como o pêndulo invertido, que apresenta múltiplas variáveis de estado e forte acoplamento entre elas, a aplicação de um único controlador PID pode não ser suficiente para garantir um desempenho adequado do sistema como um todo. Isso ocorre porque o acoplamento entre essas variáveis é forte, de modo que a ação de controle sobre uma delas pode influenciar diretamente as demais.
 
@@ -93,9 +94,9 @@ Outra técnica analisada foi o controle LQR (Linear Quadratic Regulator), que se
 
 No contexto do pêndulo invertido, o LQR apresenta uma vantagem significativa, pois consegue estabilizar o sistema considerando simultaneamente variáveis como o ângulo, a velocidade, a posição e sua velocidade linear. Isso permite uma  resposta melhor, rápida e coordenada em comparação com o PID. Entretanto,a maior dificuldade do LQR está na necessidade de um modelo matemático preciso do sistema. A obtenção deste modelo envolve  modelagem física, linearização e identificação de parâmetros, o que é bem mais trabalhoso. Caso o modelo não represente adequadamente o sistema real, o desempenho do  controlador é comprometido. 
 
-Dessa forma, observa-se que enquanto o PID se destaca pela simplicidade e facilidade de implementação, o LQR oferece um desempenho superior em sistemas multivariáveis, desde que tenha uma modelagem bem feita. A escolha entre essas técnicas depende diretamente do nível de complexidade do sistema, dos recursos disponíveis e dos requisitos de desempenho do projeto.
+Dessa forma, observa-se que enquanto o PID se destaca pela simplicidade e facilidade de implementação, o LQR oferece um desempenho superior em sistemas multivariáveis, desde que tenha uma modelagem bem feita. A definição da técnica a ser utilizada neste projeto será realizada na próxima etapa, após a análise do comportamento do sistema em malha aberta e a identificação de seus parâmetros.
 
-Além da analise dos controladores, foi realizado Foram realizados também testes no sistema já implementado, com o objetivo de verificar o funcionamento dos componentes. Além  do desenvolvimento da modelagem inicial do sistema.
+Além da análise dos controladores, foram realizados testes no sistema já implementado para verificar o funcionamento dos componentes, bem como o desenvolvimento da modelagem inicial do sistema.
 
 
 Testes
@@ -108,6 +109,7 @@ Em seguida, foi realizado teste de funcionamento na placa. Para isso, ela foi al
 Entretanto, os resultados obtidos não foram satisfatórios. Durante o teste, observou-se um aumento da corrente até aproximadamente 700 mA por um curto intervalo de tempo, enquanto a tensão permanecia próxima de 3 V. Isso indica a possível existência de uma falha elétrica na placa, que não foi possível localizar onde estaria.
 
 Diante disso, embora a causa  da falha não tenha sido encontrada e considerando também o estado físico já degradado da placa, uma vez que foi confeccionada há alguns anos, optou-se pela elaboração de uma nova placa com os mesmos componentes.
+
 Modelagem do Sistema
 ======
 A modelagem inicial do sistema foi estabelecida conforme apresentado a seguir:
