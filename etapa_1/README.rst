@@ -65,7 +65,8 @@ As características  da bateria utilizada podem ser observadas a seguir.
    Figura 5: Característica da bateria  LiPo.
    
    Fonte: VISTRONICA(2026)
- 
+
+
 .. figure:: Img/bateria.png
    :width: 30%
    :align: center
