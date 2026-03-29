@@ -11,6 +11,13 @@ Visão geral
 ***********
 A Etapa 1 consiste na compreensão inicial do sistema, por meio da análise da estrutura já existente, identificação dos componentes e realização de testes básicos de funcionamento. Além disso, inclui o levantamento dos parâmetros relevantes e a fundamentação teórica necessária, servindo como base para o desenvolvimento das etapas seguintes do controle.
 
+.. figure:: Img/pendulo_real.png
+   :width: 30%
+   :align: center
+
+   Figura 1 – Pêndulo invertido utilizado.   
+  
+   Fonte: Dos autores (2026).
 
 Desenvolvimento
 ***************
@@ -23,9 +30,10 @@ Para isso, foram analisados os motores utilizados, sendo estes do tipo JGB-520, 
    :width: 30%
    :align: center
 
-   Figura 1 – Características do motor.   
+   Figura 2 – Características do motor.   
   
-Fonte: Adaptado de Mikroelectron (2026).
+   Fonte: Adaptado de Mikroelectron (2026).
+
 
 Além disso, foi identificada a utilização de uma ponte H do tipo L298, responsável pelo acionamento dos motores de corrente contínua. A ponte H é um circuito de potência que permite o controle da velocidade e do sentido de rotação dos motores por meio de sinais PWM gerados pelo microcontrolador, fornecendo a corrente necessária para seu funcionamento. As informações podem ser observadas abaixo.
 
@@ -33,7 +41,7 @@ Além disso, foi identificada a utilização de uma ponte H do tipo L298, respon
    :width: 30%
    :align: center
    
-   Figura 2: Características da Ponte H.
+   Figura 3: Características da Ponte H.
   
    Fonte: Adaptado de STMicroelectronics (2000 apud PEDROSO; MODESTO, 2017).
 
@@ -43,7 +51,7 @@ O sistema também conta com um sensor do tipo MPU6050, que integra acelerômetro
    :width: 30%
    :align: center
    
-   Figura 3: Acelerômetro e Giroscópio 3 Eixos.
+   Figura 4: Acelerômetro e Giroscópio 3 Eixos.
    
    Fonte: Eletrônica Cuiabá (2026).
 
@@ -54,7 +62,7 @@ As características da bateria utilizada podem ser observadas a seguir.
    :width: 30%
    :align: center
   
-   Figura 4: Bateria LiPo.
+   Figura 5: Bateria LiPo.
    
    Fonte: VISTRONICA(2026)
 
@@ -86,11 +94,12 @@ Testes
 ======
 Os testes iniciais do sistema já existente foram realizados com o objetivo de verificar o funcionamento dos componentes. Para isso, avaliou-se o desempenho dos motores utilizando uma alimentação entre 6 V e 11 V, 
 o que permitiu observar seu funcionamento, o qual ocorreu conforme o esperado. 
-Para verificar o funcionamento dos componentes da placa, 
-foi necessário alimentá-la com (x V) e utilizar um código de teste obtido na internet, 
-em conjunto com um Arduino, para avaliar o funcionamento do giroscópio e do acelerômetro.
-Os resultados desses testes(..)
 
+Em seguida, foi realizado teste de funcionamento na placa. Para isso, ela foi alimentada com 10 V, e utilizaria-se um código de teste obtido na internet, em conjunto com um Arduino, com o objetivo de avaliar o funcionamento do giroscópio e do acelerômetro.
+
+Entretanto, os resultados obtidos não foram satisfatórios. Durante o teste, observou-se um aumento da corrente até aproximadamente 700 mA por um curto intervalo de tempo, enquanto a tensão permanecia próxima de 3 V. Isso indica a possível existência de uma falha elétrica na placa, que não foi possível localizar onde estaria.
+
+Diante disso, embora a causa  da falha não tenha sido encontrada e considerando também o estado físico já degradado da placa, uma vez que foi confeccionada há alguns anos, optou-se pela elaboração de uma nova placa com os mesmos componentes.
 Modelagem do Sistema
 ======
 A modelagem inicial do sistema foi estabelecida conforme apresentado a seguir:
@@ -100,7 +109,7 @@ A modelagem inicial do sistema foi estabelecida conforme apresentado a seguir:
    :width: 30%
    :align: center
   
-   Figura 4: Modelo do sistema pêndulo invertido.
+   Figura 6: Modelo do sistema pêndulo invertido.
   
    Fonte: UNIVERSITY OF MICHIGAN (2026).
 
