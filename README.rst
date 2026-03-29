@@ -9,7 +9,12 @@ Robô Pêndulo Invertido
 
 Requisitos
 **********
-(...)
+* O sistema deve estabilizar o robô pêndulo invertido na posição vertical;
+* Deve realizar a leitura de sensores (giroscópio e acelerômetro) para estimar a inclinação.
+Deve controlar os motores de forma a corrigir desvios e manter o equilíbrio.
+Deve permitir ajuste dos parâmetros do controlador para testes.
+Deve operar em tempo real, com resposta rápida e erro mínimo.
+Deve respeitar os limites elétricos dos componentes (tensão, corrente e potência).
 
 
 Visão geral

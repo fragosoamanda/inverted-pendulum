@@ -56,13 +56,21 @@ O sistema também conta com um sensor do tipo MPU6050, que integra acelerômetro
    Fonte: Eletrônica Cuiabá (2026).
 
 Ademais, foi identificada a fonte de alimentação do sistema, composta por uma bateria LiPo (polímero de lítio). Esse tipo de bateria apresenta alta densidade de energia, e requer cuidados do manuseio e operação, pois podem pegar fogo. Dessa forma,elas não podem ser perfuradas, amassadas e serem  sobrecarregadas. 
-As características da bateria utilizada podem ser observadas a seguir.
+As características  da bateria utilizada podem ser observadas a seguir.
+
+.. figure:: Img/caracteristicas_bateria.png
+   :width: 30%
+   :align: center
+  
+   Figura 5: Característica da bateria  LiPo.
+   
+   Fonte: VISTRONICA(2026)
  
 .. figure:: Img/bateria.png
    :width: 30%
    :align: center
   
-   Figura 5: Bateria LiPo.
+   Figura 6: Bateria LiPo.
    
    Fonte: VISTRONICA(2026)
 
@@ -109,7 +117,7 @@ A modelagem inicial do sistema foi estabelecida conforme apresentado a seguir:
    :width: 30%
    :align: center
   
-   Figura 6: Modelo do sistema pêndulo invertido.
+   Figura 7: Modelo do sistema pêndulo invertido.
   
    Fonte: UNIVERSITY OF MICHIGAN (2026).
 
