@@ -78,7 +78,7 @@ As características  da bateria utilizada podem ser observadas a seguir.
 Além disso, foi identificado o circuito de medição e condicionamento de sinais, baseado no amplificador operacional LM324,
 responsável pela leitura analógica de grandezas como a carga dos motores e o nível da bateria. 
 Também foi identificado um módulo Bluetooth, que permite a comunicação e o controle remoto do sistema. 
-Por fim, um regulador externo do tipo buck-boost, 
+Por fim, um regulador externo do tipo buck, 
 responsável por estabilizar a tensão da bateria e fornecer uma saída de +5 V.
 
 Dentre as técnicas estudadas, destaca-se o controlador PID (Proporcional, Integral e Derivativo), que é muito utilizado em sistemas de controle devido à sua estrutura que é relativamente simples e possui maior facilidade de implementação. Ele atua com base no erro entre o valor desejado (referência) e o valor medido da variável de interesse, sendo composto por três ações distintas:
