@@ -113,7 +113,7 @@ Diante disso, embora a causa  da falha não tenha sido encontrada e considerando
 
 Modelagem do Sistema
 ======
-O sistema clássico de pêndulo invertido, normalmente é scomposto por um carrinho com movimento horizontal e uma haste rígida articulada em um único ponto, é naturalmente instável, pois a haste tende a cair sob o efeito da gravidade; no entanto, ele pode ser estabilizado aplicando-se uma força horizontal adequada ao carrinho para manter a haste na posição vertical (ângulo próximo de zero), com princípios semelhantes aplicando-se também às variantes rotacionais.
+O sistema clássico de pêndulo invertido, normalmente é composto por um carrinho com movimento horizontal e uma haste rígida articulada em um único ponto, é naturalmente instável, pois a haste tende a cair sob o efeito da gravidade; no entanto, ele pode ser estabilizado aplicando-se uma força horizontal adequada ao carrinho para manter a haste na posição vertical (ângulo próximo de zero), com princípios semelhantes aplicando-se também às variantes rotacionais.
 
 A modelagem inicial do sistema foi estabelecida conforme apresentado a seguir:
 
