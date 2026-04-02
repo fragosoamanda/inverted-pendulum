@@ -115,13 +115,6 @@ Modelagem do Sistema
 ======
 
 Na figura abaixo é apresentado o diagrama do corpo livre, onde são mostradas as forças atuantes no carrinho e na haste
-.. figure:: Img/Modelagem/diagrama.png
-   :width: 30%
-   :align: center
-  
-   Figura ?: Diagrama de corpo livre do sistema pêndulo invertido.
-  
-   Fonte: UNIVERSITY OF MICHIGAN (2026).
 
 .. figure:: Img/pendulo_exemplo.png
    :width: 30%
