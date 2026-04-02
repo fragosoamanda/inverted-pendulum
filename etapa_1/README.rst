@@ -113,6 +113,15 @@ Diante disso, embora a causa  da falha não tenha sido encontrada e considerando
 
 Modelagem do Sistema
 ======
+
+.. figure:: Img/pendulo_exemplo.png
+   :width: 30%
+   :align: center
+  
+   Figura 7: Modelo do sistema pêndulo invertido.
+  
+   Fonte: UNIVERSITY OF MICHIGAN (2026).
+
 O sistema clássico de pêndulo invertido, normalmente é composto por um carrinho com movimento horizontal e uma haste rígida articulada em um único ponto, é naturalmente instável, pois a haste tende a cair sob o efeito da gravidade; no entanto, ele pode ser estabilizado aplicando-se uma força horizontal adequada ao carrinho para manter a haste na posição vertical.
 
 A estrutura real é um corpo rígido de quatro andares de plástico, sendo a base a maior e contendo a bateria, motores e uma roda de cada lado, com quatro hastes (provavelmente de alumínio) garantindo rigidez e a placa de controle no segundo andar; no entanto, como inicialmente precisamos testar a modelagem e apenas simularemos o sistema com valores próximos dos reais, será usado o sistema clássico do conjunto carro (com quatro rodas) e haste em vez do real, e mais à frente no projeto essa modelagem será refeita para a estrutura real.
@@ -123,63 +132,82 @@ Os parâmetros que influenciam diretamente a dinâmica são:
 
 
 M - Massa do carro
+
 m - Massa do pêndulo
+
 b - Coeficiente de atrito do carro
+
 l - Distância do eixo ao centro de massa
+
 I - Inércia do pêndulo
+
 F - Força aplicada no carro
+
 x - Coordenada de posição do carro
+
 θ - Ângulo do pêndulo com a vertical
+
 φ - Ângulo do pêndulo com a horizontal (θ+90°)
+
 
 Foram encontradas na literatura duas modelagens para o sistema clássico, comparadas pela monografia [1]: a primeira do livro Engenharia de Controle Moderno, de Ogata, e a segunda do Matlab. Ambas foram estudadas para, no futuro, modelar o "robô pêndulo invertido" real, mas a conclusão da monografia [1] mostra a importância da etapa de modelagem e que a ação do controlador é fortemente limitada por limitações na própria modelagem. Dessa forma, apenas a modelagem do Matlab, por possuir um desenvolvimento mais criterioso, será registrada aqui.
 
 Modelagem Matlab
 ======
 Forças no carro na direção horizontal 
+
 .. figure:: Img/Modelagem/aaaa.png
    :width: 30%
    :align: center
   
-   Figura 7: Modelo do sistema pêndulo invertido.
-  
-   Fonte: UNIVERSITY OF MICHIGAN (2026).
-
 Não há informações úteis sobre as forças na direção vertical do carrinho no modelo clássico, pois ele se desloca apenas no eixo x e a haste gira em torno da articulação. No entanto, isso pode não ser válido para o modelo real, no qual o próprio carrinho será apenas uma grande haste.
 
 Forças no pêndulo na horizontal
-(2.2)
+
+.. figure:: Img/Modelagem/2.2.png
+   :width: 30%
+   :align: center
 
 A combinação das equações 1 e 2 resulta na primeira equação que rege o comportamento do sistema.
-(2.3)
+
+.. figure:: Img/Modelagem/2.2.png
+   :width: 30%
+   :align: center
 
 Forças no pêndulo na vertical
-(2.4)
+
+.. figure:: Img/Modelagem/2.4.png
+   :width: 30%
+   :align: center
 
 Momentos em torno do centro de massa
-(2.5)
+
+.. figure:: Img/Modelagem/2.5.png
+   :width: 30%
+   :align: center
 
 A combinação das equações 4 e 5, resulta na segunda equação que regje o sistema
-(2.6)
+
+.. figure:: Img/Modelagem/2.6.png
+   :width: 30%
+   :align: center
 
 As análises de controle usuais aplicam-se apenas a sistemas lineares, tornando necessária a linearização por aproximação para pequenos ângulos (válida desde que o sistema não varie mais que 20°, conforme o Matlab). Futuramente, poderão ser feitas análises sobre possíveis problemas decorrentes dessas aproximações no controle, mas como em todas as análises o modelo foi considerado apenas para pequenos ângulos e sem mudanças bruscas no ângulo (θ''), as aproximações provavelmente não trarão problemas, porém, caso seja necessário um objetivo além de tornar o pêndulo estável na vertical, como andar em uma velocidade específica, que ficaria num anglo menor que 90°, os efeitos dessas aproximações terão que ser revistos.
 Este modelo considera φ o ângulo a partir da superfície: 0° seria o pêndulo na superfície e 90° na vertical. Dessa forma, θ = π + φ. Considera-se senθ ≈ –φ, cosθ ≈ –1, e desprezam-se termos de segunda ordem (θ'').
 
 Trabalhando algebricamente com as equações e resolvendo a equações diferencial por Laplace e relacionando a entrada (força F) com a saída Θ (posição angular da haste), tem-se
 Com a linearização e a mudança da referencia do ângulo o as equações que modelam o sistema se tornam:
-(2.8)
 
-Que no espaço de estados é representado por:
-(2.9)
-
-
-.. figure:: Img/pendulo_exemplo.png
+.. figure:: Img/Modelagem/2.8.png
    :width: 30%
    :align: center
-  
-   Figura 7: Modelo do sistema pêndulo invertido.
-  
-   Fonte: UNIVERSITY OF MICHIGAN (2026).
+
+Que no espaço de estados é representado por:
+
+.. figure:: Img/Modelagem/2.9.png
+   :width: 30%
+   :align: center
+
 
 Referências (links/datasheets/livros)
 *************************************
