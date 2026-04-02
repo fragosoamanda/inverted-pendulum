@@ -127,6 +127,7 @@ O sistema clássico de pêndulo invertido, normalmente é composto por um carrin
 A estrutura real é um corpo rígido de quatro andares de plástico, sendo a base a maior e contendo a bateria, motores e uma roda de cada lado, com quatro hastes (provavelmente de alumínio) garantindo rigidez e a placa de controle no segundo andar; no entanto, como inicialmente precisamos testar a modelagem e apenas simularemos o sistema com valores próximos dos reais, será usado o sistema clássico do conjunto carro (com quatro rodas) e haste em vez do real, e mais à frente no projeto essa modelagem será refeita para a estrutura real.
 
 Parâmetros Físicos do Sistema
+=============================
 
 Os parâmetros que influenciam diretamente a dinâmica são:
 
