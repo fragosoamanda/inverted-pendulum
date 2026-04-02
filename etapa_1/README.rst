@@ -171,7 +171,7 @@ Forças no pêndulo na horizontal
 
 A combinação das equações 1 e 2 resulta na primeira equação que rege o comportamento do sistema.
 
-.. figure:: Img/Modelagem/2.2.png
+.. figure:: Img/Modelagem/2.3.png
    :width: 50%
    :align: center
 
