@@ -166,31 +166,31 @@ Não há informações úteis sobre as forças na direção vertical do carrinho
 Forças no pêndulo na horizontal
 
 .. figure:: Img/Modelagem/2.2.png
-   :width: 30%
+   :width: 50%
    :align: center
 
 A combinação das equações 1 e 2 resulta na primeira equação que rege o comportamento do sistema.
 
 .. figure:: Img/Modelagem/2.2.png
-   :width: 30%
+   :width: 50%
    :align: center
 
 Forças no pêndulo na vertical
 
 .. figure:: Img/Modelagem/2.4.png
-   :width: 30%
+   :width: 50%
    :align: center
 
 Momentos em torno do centro de massa
 
 .. figure:: Img/Modelagem/2.5.png
-   :width: 30%
+   :width: 50%
    :align: center
 
 A combinação das equações 4 e 5, resulta na segunda equação que regje o sistema
 
 .. figure:: Img/Modelagem/2.6.png
-   :width: 30%
+   :width: 50%
    :align: center
 
 As análises de controle usuais aplicam-se apenas a sistemas lineares, tornando necessária a linearização por aproximação para pequenos ângulos (válida desde que o sistema não varie mais que 20°, conforme o Matlab). Futuramente, poderão ser feitas análises sobre possíveis problemas decorrentes dessas aproximações no controle, mas como em todas as análises o modelo foi considerado apenas para pequenos ângulos e sem mudanças bruscas no ângulo (θ''), as aproximações provavelmente não trarão problemas, porém, caso seja necessário um objetivo além de tornar o pêndulo estável na vertical, como andar em uma velocidade específica, que ficaria num anglo menor que 90°, os efeitos dessas aproximações terão que ser revistos.
@@ -200,13 +200,13 @@ Trabalhando algebricamente com as equações e resolvendo a equações diferenci
 Com a linearização e a mudança da referencia do ângulo o as equações que modelam o sistema se tornam:
 
 .. figure:: Img/Modelagem/2.8.png
-   :width: 30%
+   :width: 50%
    :align: center
 
 Que no espaço de estados é representado por:
 
 .. figure:: Img/Modelagem/2.9.png
-   :width: 30%
+   :width: 50%
    :align: center
 
 
