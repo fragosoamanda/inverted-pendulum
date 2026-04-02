@@ -196,7 +196,7 @@ Momentos em torno do centro de massa
    :width: 50%
    :align: center
 
-A combinação das equações 4 e 5, resulta na segunda equação que regje o sistema
+A combinação das equações 4 e 5, resulta na segunda equação que rege o sistema
 
 .. figure:: Img/Modelagem/2.6.png
    :width: 50%
