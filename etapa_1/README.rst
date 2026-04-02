@@ -227,6 +227,8 @@ PEDROSO, Caio Cesar de Souza; MODESTO, Eduardo La Pastina. Sistema de controle d
 
 STMicroelectronics. L298 – Dual Full-Bridge Motor Driver. Disponível em: <https://cdn.sparkfun.com/assets/7/1/d/6/c/Full-Bridge_Motor_Driver_Dual_-_L298N.pdf>. Acesso em: 25 mar. 2026.
 
+TEIXEIRA, Frederico Santos; SODRÉ, José Luis de Freitas; RANGEL JUNIOR, Marcos. O sistema dinâmico pêndulo invertido: modelagem e projeto de controladores por simulação computacional. Campos dos Goytacazes, 2006.
+
 UNIVERSIDADE FEDERAL DE OURO PRETO. Controle de pêndulo invertido. Disponível em: <https://www.monografias.ufop.br/bitstream/35400000/1651/1/MONOGRAFIA_ControlePênduloInvertido.pdf>.Acesso em: 25 mar. 2026.
 
 UNIVERSITY OF MICHIGAN. Inverted Pendulum: System Modeling. Control Tutorials for MATLAB and Simulink (CTMS). Disponível em: <https://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling>
