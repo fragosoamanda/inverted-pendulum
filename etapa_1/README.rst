@@ -137,7 +137,13 @@ Foram encontradas na literatura duas modelagens para o sistema clássico, compar
 Modelagem Matlab
 ======
 Forças no carro na direção horizontal 
-(2.1)
+.. figure:: Img/Modelagem/aaaa.png
+   :width: 30%
+   :align: center
+  
+   Figura 7: Modelo do sistema pêndulo invertido.
+  
+   Fonte: UNIVERSITY OF MICHIGAN (2026).
 
 Não há informações úteis sobre as forças na direção vertical do carrinho no modelo clássico, pois ele se desloca apenas no eixo x e a haste gira em torno da articulação. No entanto, isso pode não ser válido para o modelo real, no qual o próprio carrinho será apenas uma grande haste.
 
