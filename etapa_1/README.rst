@@ -134,7 +134,12 @@ x - Coordenada de posição do carro
 
 Foram encontradas na literatura duas modelagens para o sistema clássico, comparadas pela monografia [1]: a primeira do livro Engenharia de Controle Moderno, de Ogata, e a segunda do Matlab. Ambas foram estudadas para, no futuro, modelar o "robô pêndulo invertido" real, mas a conclusão da monografia [1] mostra a importância da etapa de modelagem e que a ação do controlador é fortemente limitada por limitações na própria modelagem. Dessa forma, apenas a modelagem do Matlab, por possuir um desenvolvimento mais criterioso, será registrada aqui.
 
-$\dot{x}$
+Modelagem Matlab
+======
+
+
+
+
 .. figure:: Img/pendulo_exemplo.png
    :width: 30%
    :align: center
