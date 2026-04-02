@@ -113,11 +113,28 @@ Diante disso, embora a causa  da falha não tenha sido encontrada e considerando
 
 Modelagem do Sistema
 ======
-O sistema clássico de pêndulo invertido, normalmente é composto por um carrinho com movimento horizontal e uma haste rígida articulada em um único ponto, é naturalmente instável, pois a haste tende a cair sob o efeito da gravidade; no entanto, ele pode ser estabilizado aplicando-se uma força horizontal adequada ao carrinho para manter a haste na posição vertical (ângulo próximo de zero), com princípios semelhantes aplicando-se também às variantes rotacionais.
+O sistema clássico de pêndulo invertido, normalmente é composto por um carrinho com movimento horizontal e uma haste rígida articulada em um único ponto, é naturalmente instável, pois a haste tende a cair sob o efeito da gravidade; no entanto, ele pode ser estabilizado aplicando-se uma força horizontal adequada ao carrinho para manter a haste na posição vertical.
 
-A modelagem inicial do sistema foi estabelecida conforme apresentado a seguir:
+A estrutura real é um corpo rígido de quatro andares de plástico, sendo a base a maior e contendo a bateria, motores e uma roda de cada lado, com quatro hastes (provavelmente de alumínio) garantindo rigidez e a placa de controle no segundo andar; no entanto, como inicialmente precisamos testar a modelagem e apenas simularemos o sistema com valores próximos dos reais, será usado o sistema clássico do conjunto carro (com quatro rodas) e haste em vez do real, e mais à frente no projeto essa modelagem será refeita para a estrutura real.
+
+Parâmetros Físicos do Sistema
+
+Os parâmetros que influenciam diretamente a dinâmica são:
 
 
+M - Massa do carro
+m - Massa do pêndulo
+b - Coeficiente de atrito do carro
+l - Distância do eixo ao centro de massa
+I - Inércia do pêndulo
+F - Força aplicada no carro
+x - Coordenada de posição do carro
+θ - Ângulo do pêndulo com a vertical
+φ - Ângulo do pêndulo com a horizontal (θ+90°)
+
+Foram encontradas na literatura duas modelagens para o sistema clássico, comparadas pela monografia [1]: a primeira do livro Engenharia de Controle Moderno, de Ogata, e a segunda do Matlab. Ambas foram estudadas para, no futuro, modelar o "robô pêndulo invertido" real, mas a conclusão da monografia [1] mostra a importância da etapa de modelagem e que a ação do controlador é fortemente limitada por limitações na própria modelagem. Dessa forma, apenas a modelagem do Matlab, por possuir um desenvolvimento mais criterioso, será registrada aqui.
+
+$\dot{x}$
 .. figure:: Img/pendulo_exemplo.png
    :width: 30%
    :align: center
