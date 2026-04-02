@@ -136,8 +136,35 @@ Foram encontradas na literatura duas modelagens para o sistema clássico, compar
 
 Modelagem Matlab
 ======
+Forças no carro na direção horizontal 
+(2.1)
 
+Não há informações úteis sobre as forças na direção vertical do carrinho no modelo clássico, pois ele se desloca apenas no eixo x e a haste gira em torno da articulação. No entanto, isso pode não ser válido para o modelo real, no qual o próprio carrinho será apenas uma grande haste.
 
+Forças no pêndulo na horizontal
+(2.2)
+
+A combinação das equações 1 e 2 resulta na primeira equação que rege o comportamento do sistema.
+(2.3)
+
+Forças no pêndulo na vertical
+(2.4)
+
+Momentos em torno do centro de massa
+(2.5)
+
+A combinação das equações 4 e 5, resulta na segunda equação que regje o sistema
+(2.6)
+
+As análises de controle usuais aplicam-se apenas a sistemas lineares, tornando necessária a linearização por aproximação para pequenos ângulos (válida desde que o sistema não varie mais que 20°, conforme o Matlab). Futuramente, poderão ser feitas análises sobre possíveis problemas decorrentes dessas aproximações no controle, mas como em todas as análises o modelo foi considerado apenas para pequenos ângulos e sem mudanças bruscas no ângulo (θ''), as aproximações provavelmente não trarão problemas, porém, caso seja necessário um objetivo além de tornar o pêndulo estável na vertical, como andar em uma velocidade específica, que ficaria num anglo menor que 90°, os efeitos dessas aproximações terão que ser revistos.
+Este modelo considera φ o ângulo a partir da superfície: 0° seria o pêndulo na superfície e 90° na vertical. Dessa forma, θ = π + φ. Considera-se senθ ≈ –φ, cosθ ≈ –1, e desprezam-se termos de segunda ordem (θ'').
+
+Trabalhando algebricamente com as equações e resolvendo a equações diferencial por Laplace e relacionando a entrada (força F) com a saída Θ (posição angular da haste), tem-se
+Com a linearização e a mudança da referencia do ângulo o as equações que modelam o sistema se tornam:
+(2.8)
+
+Que no espaço de estados é representado por:
+(2.9)
 
 
 .. figure:: Img/pendulo_exemplo.png
