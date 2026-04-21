@@ -43,8 +43,11 @@ Em seguida, as plataformas  foram removidas e analisadas individualmente, confor
 | Componente    | Peso (g) | Largura (cm) | Comprimento (cm) | Altura (mm) |
 +---------------+----------+--------------+------------------+-------------+
 | Plataforma 1  | 371      | 7,50         | 24,1             | 15,0        |
++---------------+----------+--------------+------------------+-------------+
 | Plataforma 2  | 58       | 7,50         | 15,0             | 7,3         |
++---------------+----------+--------------+------------------+-------------+
 | Plataforma 3  | 50       | 7,50         | 15,0             | 7,4         |
++---------------+----------+--------------+------------------+-------------+
 | Plataforma 4  | 57       | 7,50         | 15,0             | 15,3        |
 +---------------+----------+--------------+------------------+-------------+
 
@@ -84,7 +87,7 @@ que contribui significativamente para a massa no seu total, embora suas dimensõ
 
 
 O conjunto motor-roda possui massa de 241 g, com diâmetro de roda de 65,4 mm, sendo este parâmetro essencial para
- a relação entre deslocamento linear e rotação do motor.
+a relação entre deslocamento linear e rotação do motor.
 
 
 .. figure:: img/motores.jpg
