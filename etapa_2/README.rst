@@ -5,7 +5,6 @@ Etapa 2
    :local:
    :depth: 2
 
-
 Visão geral
 ***********
 
@@ -17,37 +16,40 @@ A Etapa 2 consite na estruturação prática do sistema de controle, envolvendo 
   e realizado  a identificação de parâmetros fundamentais.
 
 Desenvolvimento
-
 ***************
-****(A primeira etapa desenvolvida consistiu na definição do método de controle a ser empregado no sistema.
+
+((A primeira etapa desenvolvida consistiu na definição do método de controle a ser empregado no sistema.
 Optou-se pela utilização do controle do tipo Linear Quadratic Regulator (LQR).
 
 Embora o LQR exija a modelagem do sistema e maior esforço computacional quando comparado ao controle PID, 
 ele se mostrou mais adequado para a aplicação proposta.
- Isso se deve ao fato de o pêndulo invertido ser um sistema naturalmente instável, multivariável 
- e altamente sensível a perturbações, características que dificultam a obtenção de desempenho satisfatório
-  por métodos empíricos.
+Isso se deve ao fato de o pêndulo invertido ser um sistema naturalmente instável, multivariável 
+e altamente sensível a perturbações, características que dificultam a obtenção de desempenho satisfatório
+por métodos empíricos.
 
 O LQR permite a obtenção de uma lei de controle baseada em modelo, capaz de minimizar uma função de custo que pondera 
 simultaneamente o erro de estado e o esforço de controle. Dessa forma, é possível garantir 
-maior estabilidade, resposta dinâmica mais previsível.)*****
+maior estabilidade, resposta dinâmica mais previsível.))
 
 Em seguida, realizou-se a caracterização do sistema com o objetivo de obter parâmetros físicos  para as etapas subsequentes de modelagem e projeto de controle. Para isso, o robô pêndulo invertido foi desmontado,
 para  a medição individual de massa e dimensões de cada componente estrutural. 
 Isso possibilitou a estimativa da distribuição de massa, dimensões características e,
- posteriormente, a obtenção de parâmetros relevantes como centro de massa e momentos de inércia aproximados.
+posteriormente, a obtenção de parâmetros relevantes como centro de massa e momentos de inércia aproximados.
 
 Inicialmente, foi medido o peso total do sistema completo, resultando em 1372 g.
- Em seguida, as plataformas  foram removidas e analisadas individualmente, conforme apresentado na Tabela abaixo.
+Em seguida, as plataformas  foram removidas e analisadas individualmente, conforme apresentado na Tabela abaixo.
 
-               Peso(g)     Largura(mm)      Comprimento (cm)        altura(mm)
-Plataforma 1     371          7,50                24,1                  15,0     
-Plataforma 2     58           7,50                15,0                  7,3
-Plataforma 3     50           7,50                15,0                  7,4
-Plataforma 4     57           7,50                15,0                  15,3
++---------------+----------+--------------+------------------+-------------+
+| Componente    | Peso (g) | Largura (cm) | Comprimento (cm) | Altura (mm) |
++---------------+----------+--------------+------------------+-------------+
+| Plataforma 1  | 371      | 7,50         | 24,1             | 15,0        |
+| Plataforma 2  | 58       | 7,50         | 15,0             | 7,3         |
+| Plataforma 3  | 50       | 7,50         | 15,0             | 7,4         |
+| Plataforma 4  | 57       | 7,50         | 15,0             | 15,3        |
++---------------+----------+--------------+------------------+-------------+
 
 
- figure:: img/plataformas.jpg
+ .. figure:: img/plataformas.jpg
    :width: 30%
    :align: center
 
@@ -61,7 +63,7 @@ A Plataforma 1, que suporta a bateria, apresenta altura total de 48,6 mm quando 
 As quatro hastes de sustentação possuem massa total de 41 g, diâmetro aproximado de 6,4 mm e comprimento de 28,7 cm, 
 sendo responsáveis pela  estruturação e espaçamento entre os níveis do sistema.
 
- figure:: img/hastes.jpg
+ .. figure:: img/hastes.jpg
    :width: 30%
    :align: center
 
@@ -72,7 +74,7 @@ sendo responsáveis pela  estruturação e espaçamento entre os níveis do sist
 Adicionalmente, o conjunto de porcas apresenta massa total de 104 g, 
 que contribui significativamente para a massa no seu total, embora suas dimensões não sejam relevantes para a modelagem dinâmica.
 
-figure:: img/porcas.jpg
+.. figure:: img/porcas.jpg
    :width: 30%
    :align: center
 
@@ -85,7 +87,7 @@ O conjunto motor-roda possui massa de 241 g, com diâmetro de roda de 65,4 mm, s
  a relação entre deslocamento linear e rotação do motor.
 
 
-figure:: img/motores.jpg
+.. figure:: img/motores.jpg
    :width: 30%
    :align: center
 
@@ -105,7 +107,7 @@ maior frequência de operação, presença de periféricos como temporizadores d
 interfaces de entrada/saída, 
 além de oferecer melhor desempenho em aplicações de controle em tempo real quando comparada a alternativas mais simples.
 
-figure:: img/bp.jpg
+.. figure:: img/bp.jpg
    :width: 30%
    :align: center
 
@@ -127,7 +129,5 @@ a caracterizaçao do sistema as medidas das coisas
 
 Referências (links/datasheets/livros)
 *************************************
-
-- `nRF Connect SDK <https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.4.2/nrf/getting_started/modifying.html#configure-application>`_
 
 
