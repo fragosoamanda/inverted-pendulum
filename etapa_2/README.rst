@@ -9,11 +9,8 @@ Visão geral
 ***********
 
 A Etapa 2 consite na estruturação prática do sistema de controle, envolvendo a
- análise e seleção de técnicas de controle  ao problema, 
- bem como o desenvolvimento de uma interface para testes.
-  Além disso, são realizados ensaios do sistema de acionamento 
-  em malha aberta, permitindo a observação do seu comportamento. Nessa etapa também foi definido o microcontrolador a ser utilizado 
-  e realizado  a identificação de parâmetros fundamentais.
+análise e seleção de técnicas de controle  ao problema, bem como o desenvolvimento de uma interface para testes. Além disso, são realizados ensaios do sistema de acionamento  em malha aberta, permitindo a observação do seu comportamento. Nessa etapa também foi definido o microcontrolador a ser utilizado 
+e realizado  a identificação de parâmetros fundamentais.
 
 Desenvolvimento
 ***************
