@@ -105,34 +105,18 @@ maior frequência de operação, presença de periféricos como temporizadores d
 interfaces de entrada/saída, 
 além de oferecer melhor desempenho em aplicações de controle em tempo real quando comparada a alternativas mais simples.
 
+figure:: img/bp.jpg
+   :width: 30%
+   :align: center
 
-Desenvolvimento da interface de testes
-teste de acionamento 
+   Figura 5 – Microcontrolador Black Pill.   
+  
+   Fonte: Dos autores (2026).
 
 Testes
 ======
-1300g peso total com tudo
-peso da ultima plataforma  57g  as 3 tem 7.50mm de largura  altura 15.3 mm todos sao 15cm de comprimento 
-peso da 3 plataforma 50g altura 7.3
-peso da 2 plataforma 58g altura 7,4mm
-primeir abase com bateria e ,,371g| 15,0mm altura e 24,1 cm de comprimento
-
-altura com a bateria 48,6mm 
-
-peso de 1 haste x4  41g grosssura? de 6,4mm
-comprimento 28,7 cm 
-haste 1-39
-2-39
-39
-pesos das porcas 104g
-
-um motor com roda 241g
-dois motor com roda 241g
-
-diametro da roda com pneu= 65,4 mm
-diametro sem o pneu =51,4mm  
-distancia da roda e do motor juntos = 93 
-
+Desenvolvimento da interface de testes
+teste de acionamento
 
 Descrição dos testes/validações realizadas.
 a caracterizaçao do sistema as medidas das coisas 
