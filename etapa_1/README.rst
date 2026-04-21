@@ -81,6 +81,8 @@ Também foi identificado um módulo Bluetooth, que permite a comunicação e o c
 Por fim, um regulador externo do tipo buck, 
 responsável por estabilizar a tensão da bateria e fornecer uma saída de +5 V.
 
+Além disso, foram realizadas pesquisas teóricas sobre o comportamento do sistema, caracterizado como instável e não linear. Foram analisadas diferentes técnicas de controle com base em trabalhos da literatura, como o de Abdusamadov (2023), no qual é apresentada uma comparação entre diferentes abordagens de controle aplicadas ao pêndulo invertido
+
 Dentre as técnicas estudadas, destaca-se o controlador PID (Proporcional, Integral e Derivativo), que é muito utilizado em sistemas de controle devido à sua estrutura que é relativamente simples e possui maior facilidade de implementação. Ele atua com base no erro entre o valor desejado (referência) e o valor medido da variável de interesse, sendo composto por três ações distintas:
 
 * A ação proporcional, que reage  ao erro.
@@ -152,8 +154,7 @@ x - Coordenada de posição do carro
 
 φ - Ângulo do pêndulo com a horizontal (θ+90°)
 
-
-Foram encontradas na literatura duas modelagens para o sistema clássico, comparadas pela monografia [1]: a primeira do livro Engenharia de Controle Moderno, de Ogata, e a segunda do Matlab. Ambas foram estudadas para, no futuro, modelar o "robô pêndulo invertido" real, mas a conclusão da monografia [1] mostra a importância da etapa de modelagem e que a ação do controlador é fortemente limitada por limitações na própria modelagem. Dessa forma, apenas a modelagem do Matlab, por possuir um desenvolvimento mais criterioso, será registrada aqui.
+Foram encontradas na literatura duas modelagens para o sistema clássico, comparadas por Teixeira, Sodré e Rangel Junior (2006): a primeira do livro Engenharia de Controle Moderno, de Ogata, e a segunda do Matlab. Ambas foram estudadas para, no futuro, modelar o "robô pêndulo invertido" real, mas a conclusão de Teixeira, Sodré e Rangel Junior (2006) mostra a importância da etapa de modelagem e que a ação do controlador é fortemente limitada por limitações na própria modelagem. Dessa forma, apenas a modelagem do Matlab, por possuir um desenvolvimento mais criterioso, será registrada aqui.
 
 Modelagem Matlab
 ======
@@ -226,6 +227,8 @@ MIKROELETRON. ME-13526. Disponível em: <https://mikroelectron.com/product/me-13
 PEDROSO, Caio Cesar de Souza; MODESTO, Eduardo La Pastina. Sistema de controle de pêndulo invertido. 2017. Trabalho de Conclusão de Curso – Universidade Tecnológica Federal do Paraná, Curitiba, 2017.
 
 STMicroelectronics. L298 – Dual Full-Bridge Motor Driver. Disponível em: <https://cdn.sparkfun.com/assets/7/1/d/6/c/Full-Bridge_Motor_Driver_Dual_-_L298N.pdf>. Acesso em: 25 mar. 2026.
+
+TEIXEIRA, Frederico Santos; SODRÉ, José Luis de Freitas; RANGEL JUNIOR, Marcos. O sistema dinâmico pêndulo invertido: modelagem e projeto de controladores por simulação computacional. Campos dos Goytacazes, 2006.
 
 UNIVERSIDADE FEDERAL DE OURO PRETO. Controle de pêndulo invertido. Disponível em: <https://www.monografias.ufop.br/bitstream/35400000/1651/1/MONOGRAFIA_ControlePênduloInvertido.pdf>.Acesso em: 25 mar. 2026.
 
