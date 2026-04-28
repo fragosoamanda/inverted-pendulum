@@ -5,7 +5,7 @@ Etapa 2
    :local:
    :depth: 2
 
-Visão geral
+Visão gerala
 ***********
 
 A Etapa 2 consite na estruturação prática do sistema de controle, envolvendo a
@@ -48,6 +48,21 @@ Em seguida, as plataformas  foram removidas e analisadas individualmente, confor
 | Plataforma 4  | 57       | 7,50         | 15,0             | 15,3        |
 +---------------+----------+--------------+------------------+-------------+
 
+Esses dados são necessários para a definição do controlador, já considerando a contribuição de massa das duas placas no sistema.
+
++---------------+-------------------------------------------+--------------+
+| Símbolo       |             Parâmetro                     |    Valor     | 
++---------------+-------------------------------------------+--------------+
+|        M      |          Massa do Carro                   |    0,892 Kg  | 
++---------------+-------------------------------------------+--------------+
+|        m      |          Massa do Pêndulo                 |    0,510 Kg  |      
++---------------+-------------------------------------------+--------------+
+|        I      |  Distância ao centro de massa do pêndulo  |              | 
++---------------+-------------------------------------------+--------------+
+|        J      |   Momento de inércia do pêndulo           |              | 
++---------------+-------------------------------------------+--------------+
+|        g      |       Aceleração da Gravidade             |    9,81 m/s² | 
++---------------+-------------------------------------------+--------------+
 
  .. figure:: img/plataformas.jpg
    :width: 30%
@@ -122,12 +137,3 @@ teste de acionamento
 
 Descrição dos testes/validações realizadas.
 a caracterizaçao do sistema as medidas das coisas 
-
-(Outras subseções se necessário)
-================================
-
-
-Referências (links/datasheets/livros)
-*************************************
-
-
