@@ -48,6 +48,14 @@ Em seguida, as plataformas  foram removidas e analisadas individualmente, confor
 | Plataforma 4  | 57       | 7,50         | 15,0             | 15,3        |
 +---------------+----------+--------------+------------------+-------------+
 
+ .. figure:: img/plataformas.jpg
+   :width: 30%
+   :align: center
+
+   Figura 2 – Plataformas do robô.   
+  
+   Fonte: Dos autores (2026).
+
 Esses dados são necessários para a definição do controlador, já considerando a contribuição de massa das duas placas no sistema.
 
 +---------------+-------------------------------------------+--------------+
@@ -63,15 +71,6 @@ Esses dados são necessários para a definição do controlador, já considerand
 +---------------+-------------------------------------------+--------------+
 |        g      |       Aceleração da Gravidade             |    9,81 m/s² | 
 +---------------+-------------------------------------------+--------------+
-
- .. figure:: img/plataformas.jpg
-   :width: 30%
-   :align: center
-
-   Figura 2 – Plataformas do robô.   
-  
-   Fonte: Dos autores (2026).
-
 
 A Plataforma 1, que suporta a bateria, apresenta altura total de 48,6 mm quando montada.
 
