@@ -195,17 +195,15 @@ permitindo a análise de sua queda em malha aberta.
 
 
 .. figure:: img/pitch.png
-   :width: 30%
+   :width: 50%
    :align: center
 
    Figura 6 – Gráfico da inclinação frente/atrás.   
   
    Fonte: Dos autores (2026).
 
-
-
    .. figure:: img/YPR.png
-   :width: 30%
+   :width: 50%
    :align: center
 
    Figura 7 – Graficos Com todos os valores.   
