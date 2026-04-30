@@ -5,7 +5,7 @@ Etapa 2
    :local:
    :depth: 2
 
-Visão gerala
+Visão geral
 ***********
 
 A Etapa 2 consite na estruturação prática do sistema de controle, envolvendo a
