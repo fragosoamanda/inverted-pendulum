@@ -138,7 +138,7 @@ Para a realização dos testes, foi desenvolvida uma interface dedicada à aquis
 
 Dessa forma, optou-se pela utilização da   plataforma Arduino para a aquisição dos dados, garantindo a continuidade dos experimentos e a confiabilidade das medições.
 
-A seguir, é apresentado uma tabela  correspondentes aos dados obtidos do giroscópio durante o processo de calibração. 
+A seguir, apresenta-se uma tabela com os dados obtidos do giroscópio durante o processo de calibração. As amostras são transmitidas em blocos de quatro valores devido ao comportamento do buffer da interface UART. Para a construção dos gráficos, considerou-se espaçamento temporal uniforme entre as amostras, assumindo tempo de aquisição constante.
 
 +---------------+-------------------------------------------+---------------------------+
 |Eixo Vertical  |    Inclinação para frente e para trás     |   Inclinação para lateral | 
