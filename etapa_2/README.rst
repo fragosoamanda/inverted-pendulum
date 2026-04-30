@@ -15,7 +15,7 @@ e realizado  a identificação de parâmetros fundamentais.
 Desenvolvimento
 ***************
 
-((A primeira etapa desenvolvida consistiu na definição do método de controle a ser empregado no sistema.
+A primeira etapa desenvolvida consistiu na definição do método de controle a ser empregado no sistema.
 Optou-se pela utilização do controle do tipo Linear Quadratic Regulator (LQR).
 
 Embora o LQR exija a modelagem do sistema e maior esforço computacional quando comparado ao controle PID, 
@@ -26,7 +26,7 @@ por métodos empíricos.
 
 O LQR permite a obtenção de uma lei de controle baseada em modelo, capaz de minimizar uma função de custo que pondera 
 simultaneamente o erro de estado e o esforço de controle. Dessa forma, é possível garantir 
-maior estabilidade, resposta dinâmica mais previsível.))
+maior estabilidade, resposta dinâmica mais previsível.
 
 Em seguida, realizou-se a caracterização do sistema com o objetivo de obter parâmetros físicos  para as etapas subsequentes de modelagem e projeto de controle. Para isso, o robô pêndulo invertido foi desmontado,
 para  a medição individual de massa e dimensões de cada componente estrutural. 
@@ -48,6 +48,24 @@ Em seguida, as plataformas  foram removidas e analisadas individualmente, confor
 | Plataforma 4  | 57       | 7,50         | 15,0             | 15,3        |
 +---------------+----------+--------------+------------------+-------------+
 
+Sendo esses dados necessarios para a definição do controlador considerando o peso ja das  duas placas
+
++---------------+-------------------------------------------+-------------------+
+| Símbolo       |             Parâmetro                     |       Valor       | 
++---------------+-------------------------------------------+-------------------+
+|        M      |          Massa do Carro                   |    0,892 Kg       | 
++---------------+-------------------------------------------+-------------------+
+|        m      |          Massa do Pêndulo                 |    0,510 Kg       |      
++---------------+-------------------------------------------+-------------------+
+|        L      |  Distância ao centro de massa do pêndulo  |       0,227 m     | 
++---------------+-------------------------------------------+-------------------+
+|        J      |   Momento de inércia do pêndulo           | 9,72*10^-3 kg m²  | 
++---------------+-------------------------------------------+-------------------+
+|        g      |       Aceleração da Gravidade             |    9,81 m/s²      | 
++---------------+-------------------------------------------+-------------------+
+
+
+
  .. figure:: img/plataformas.jpg
    :width: 30%
    :align: center
@@ -56,21 +74,6 @@ Em seguida, as plataformas  foram removidas e analisadas individualmente, confor
   
    Fonte: Dos autores (2026).
 
-Esses dados são necessários para a definição do controlador, já considerando a contribuição de massa das duas placas no sistema.
-
-+---------------+-------------------------------------------+--------------+
-| Símbolo       |             Parâmetro                     |    Valor     | 
-+---------------+-------------------------------------------+--------------+
-|        M      |          Massa do Carro                   |    0,892 Kg  | 
-+---------------+-------------------------------------------+--------------+
-|        m      |          Massa do Pêndulo                 |    0,510 Kg  |      
-+---------------+-------------------------------------------+--------------+
-|        I      |  Distância ao centro de massa do pêndulo  |              | 
-+---------------+-------------------------------------------+--------------+
-|        J      |   Momento de inércia do pêndulo           |              | 
-+---------------+-------------------------------------------+--------------+
-|        g      |       Aceleração da Gravidade             |    9,81 m/s² | 
-+---------------+-------------------------------------------+--------------+
 
 A Plataforma 1, que suporta a bateria, apresenta altura total de 48,6 mm quando montada.
 
@@ -131,8 +134,79 @@ além de oferecer melhor desempenho em aplicações de controle em tempo real qu
 
 Testes
 ======
-Desenvolvimento da interface de testes
-teste de acionamento
+Para a realização dos testes, foi desenvolvida uma interface dedicada à aquisição de dados do giroscópio e do acelerômetro do sensor MPU6050. Inicialmente, essa interface foi projetada para operação no microcontrolador STM32F4. No entanto, após diversas tentativas de implementação, identificou-se um problema na comunicação via protocolo I²C, o qual não pôde ser solucionado dentro do prazo disponível.
 
-Descrição dos testes/validações realizadas.
-a caracterizaçao do sistema as medidas das coisas 
+Dessa forma, optou-se pela utilização de uma plataforma Arduino para a aquisição dos dados, garantindo a continuidade dos experimentos e a confiabilidade das medições.
+
+A seguir, é apresentado uma tabela  correspondentes aos dados obtidos do giroscópio durante o processo de calibração. 
+
++---------------+-------------------------------------------+---------------------------+
+|Eixo Vertical  |    Inclinação para frente e para trás     |   Inclinação para lateral | 
++---------------+-------------------------------------------+---------------------------+
+|     -0,02     |                   0,00                    |           -0,03           | 
++---------------+-------------------------------------------+---------------------------+
+|     -0,02     |                   0,01                    |           -0,03           |      
++---------------+-------------------------------------------+---------------------------+
+|     -0,03     |                   0,01                    |           -0,04           | 
++---------------+-------------------------------------------+---------------------------+
+|     -0,03     |                   0,01                    |           -0,05           | 
++---------------+-------------------------------------------+---------------------------+
+Após a realização da calibração, foram conduzidos testes com o objetivo de verificar o correto funcionamento do sistema. 
+Um recorte representativo dos resultados obtidos é apresentado a seguir.
+
++---------------+-------------------------------------------+---------------------------+
+|Eixo Vertical  |    Inclinação para frente e para trás     |   Inclinação para lateral | 
++---------------+-------------------------------------------+---------------------------+
+|     1,05      |                  -19,09                   |           -0,38           | 
++---------------+-------------------------------------------+---------------------------+
+|     1,04      |                  -19,10                   |           -0,38           |      
++---------------+-------------------------------------------+---------------------------+
+|     1,04      |                  -19,21                   |           -0,37           | 
++---------------+-------------------------------------------+---------------------------+
+|     1,04      |                  -20,02                   |           -0,40           | 
++---------------+-------------------------------------------+---------------------------+
+Após a etapa de calibração, foi realizado um ensaio em malha aberta, no qual foram obtidos os seguintes recortes de dados experimentais. O teste não foi conduzido até a queda completa do pêndulo, uma vez que o microcontrolador não estava fixado à estrutura. 
+Nessas condições, a queda total poderia comprometer as conexões elétricas ou até ocasionar a ruptura de fios.
+
+Dessa forma, o pêndulo foi inicialmente posicionado na vertical e liberado, sendo permitido seu movimento até aproximadamente 45°,
+para  garantir a integridade do sistema durante a aquisição dos dados
+
++---------------+-------------------------------------------+---------------------------+
+|Eixo Vertical  |    Inclinação para frente e para trás     |   Inclinação para lateral | 
++---------------+-------------------------------------------+---------------------------+
+|    -0,14      |                  -1,42                    |           -0,09           | 
++---------------+-------------------------------------------+---------------------------+
+|     -0,17     |                  -3,12                    |           -0,12           |      
++---------------+-------------------------------------------+---------------------------+
+|    -0,22      |                  --6,11                   |           -0,15           | 
++---------------+-------------------------------------------+---------------------------+
+|    -0,26      |                  -10,23                   |           -0,18           | 
++---------------+-------------------------------------------+---------------------------+
+|    -0,32      |                  -13,65                   |           -0,22           | 
++---------------+-------------------------------------------+---------------------------+
+|    -0,58      |                  -24,38                   |           -0,31           | 
++---------------+-------------------------------------------+---------------------------+
+|    -0,89      |                  -40,13                   |           -0,39           | 
++---------------+-------------------------------------------+---------------------------+
+|    -1,12      |                  -50,22                   |           -0,34           | 
++---------------+-------------------------------------------+---------------------------+
+Assim, foi possível construir um gráfico representativo da evolução angular do pêndulo ao longo do tempo, 
+permitindo a análise de sua queda em malha aberta.
+
+.. figure:: img/pitch.jpg
+   :width: 30%
+   :align: center
+
+   Figura 6 – Gráfico da inclinação frente/atrás.   
+  
+   Fonte: Dos autores (2026).
+
+
+   .. figure:: img/YPR.png
+   :width: 30%
+   :align: center
+
+   Figura 7 – Graficos Com todos os valores.   
+  
+   Fonte: Dos autores (2026).
+
