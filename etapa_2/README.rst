@@ -191,19 +191,20 @@ para  garantir a integridade do sistema durante a aquisição dos dados
 +---------------+-------------------------------------------+---------------------------+
 |    -1,12      |                  -50,22                   |           -0,34           | 
 +---------------+-------------------------------------------+---------------------------+
+
 Assim, foi possível construir um gráfico representativo da evolução angular do pêndulo ao longo do tempo, 
 permitindo a análise de sua queda em malha aberta.
 
 .. figure:: img/pitch.jpg
-   :width: 30%
+   :width: 50%
    :align: center
 
    Figura 6 – Gráfico da inclinação frente/atrás.   
-  
+
    Fonte: Dos autores (2026).
 
 .. figure:: img/XYZ.png
-   :width: 30%
+   :width: 50%
    :align: center
 
    Figura 7 – Graficos Com todos os valores.   
