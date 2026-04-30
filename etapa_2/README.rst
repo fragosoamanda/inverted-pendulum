@@ -5,7 +5,7 @@ Etapa 2
    :local:
    :depth: 2
 
-Visão geral
+Visão gerala
 ***********
 
 A Etapa 2 consite na estruturação prática do sistema de controle, envolvendo a
@@ -51,7 +51,7 @@ Em seguida, as plataformas  foram removidas e analisadas individualmente, confor
 Sendo esses dados necessarios para a definição do controlador considerando o peso ja das  duas placas
 
 +---------------+-------------------------------------------+-------------------+
-| Símbolo       |             Parâmetro                     |       Valor       | 
+|     Símbolo   |             Parâmetro                     |       Valor       | 
 +---------------+-------------------------------------------+-------------------+
 |        M      |          Massa do Carro                   |    0,892 Kg       | 
 +---------------+-------------------------------------------+-------------------+
@@ -136,7 +136,7 @@ Testes
 ======
 Para a realização dos testes, foi desenvolvida uma interface dedicada à aquisição de dados do giroscópio e do acelerômetro do sensor MPU6050. Inicialmente, essa interface foi projetada para operação no microcontrolador STM32F4. No entanto, após diversas tentativas de implementação, identificou-se um problema na comunicação via protocolo I²C, o qual não pôde ser solucionado dentro do prazo disponível.
 
-Dessa forma, optou-se pela utilização de uma plataforma Arduino para a aquisição dos dados, garantindo a continuidade dos experimentos e a confiabilidade das medições.
+Dessa forma, optou-se pela utilização da   plataforma Arduino para a aquisição dos dados, garantindo a continuidade dos experimentos e a confiabilidade das medições.
 
 A seguir, é apresentado uma tabela  correspondentes aos dados obtidos do giroscópio durante o processo de calibração. 
 
@@ -151,6 +151,7 @@ A seguir, é apresentado uma tabela  correspondentes aos dados obtidos do girosc
 +---------------+-------------------------------------------+---------------------------+
 |     -0,03     |                   0,01                    |           -0,05           | 
 +---------------+-------------------------------------------+---------------------------+
+
 Após a realização da calibração, foram conduzidos testes com o objetivo de verificar o correto funcionamento do sistema. 
 Um recorte representativo dos resultados obtidos é apresentado a seguir.
 
@@ -178,7 +179,7 @@ para  garantir a integridade do sistema durante a aquisição dos dados
 +---------------+-------------------------------------------+---------------------------+
 |     -0,17     |                  -3,12                    |           -0,12           |      
 +---------------+-------------------------------------------+---------------------------+
-|    -0,22      |                  --6,11                   |           -0,15           | 
+|    -0,22      |                  -6,11                    |           -0,15           | 
 +---------------+-------------------------------------------+---------------------------+
 |    -0,26      |                  -10,23                   |           -0,18           | 
 +---------------+-------------------------------------------+---------------------------+
@@ -193,17 +194,17 @@ para  garantir a integridade do sistema durante a aquisição dos dados
 Assim, foi possível construir um gráfico representativo da evolução angular do pêndulo ao longo do tempo, 
 permitindo a análise de sua queda em malha aberta.
 
-
-.. figure:: img/pitch.png
-   :width: 50%
+.. figure:: img/pitch.jpg
+   :width: 30%
    :align: center
 
    Figura 6 – Gráfico da inclinação frente/atrás.   
   
    Fonte: Dos autores (2026).
 
-.. figure:: img/YPR.png
-   :width: 50%
+
+   .. figure:: img/YPR.png
+   :width: 30%
    :align: center
 
    Figura 7 – Graficos Com todos os valores.   
