@@ -202,8 +202,7 @@ permitindo a análise de sua queda em malha aberta.
   
    Fonte: Dos autores (2026).
 
-
-   .. figure:: img/YPR.png
+.. figure:: img/XYZ.png
    :width: 30%
    :align: center
 
