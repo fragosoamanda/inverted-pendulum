@@ -193,6 +193,7 @@ para  garantir a integridade do sistema durante a aquisição dos dados
 Assim, foi possível construir um gráfico representativo da evolução angular do pêndulo ao longo do tempo, 
 permitindo a análise de sua queda em malha aberta.
 
+
 .. figure:: img/pitch.png
    :width: 30%
    :align: center
@@ -200,6 +201,7 @@ permitindo a análise de sua queda em malha aberta.
    Figura 6 – Gráfico da inclinação frente/atrás.   
   
    Fonte: Dos autores (2026).
+
 
 
    .. figure:: img/YPR.png
