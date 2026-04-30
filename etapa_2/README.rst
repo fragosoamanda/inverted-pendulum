@@ -195,7 +195,7 @@ para  garantir a integridade do sistema durante a aquisição dos dados
 Assim, foi possível construir um gráfico representativo da evolução angular do pêndulo ao longo do tempo, 
 permitindo a análise de sua queda em malha aberta.
 
-.. figure:: img/pitch.jpg
+.. figure:: img/pitch.png
    :width: 50%
    :align: center
 
