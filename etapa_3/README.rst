@@ -74,6 +74,27 @@ foi possível analisar a resposta dinâmica do sistema em malha fechada, observa
 e a capacidade do controlador em estabilizar o pêndulo na posição de equilíbrio.
 
 Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos durante a simulação do pêndulo invertido, podem ser visualizados a seguir.
+  
+  
+  .. figure:: img/blocos.png
+   :width: 70%
+   :align: center
+
+   Figura x – x   
+  
+   Fonte: Dos autores (2026).
+
+ 
+ .. figure:: img/gif.gif
+   :width: 70%
+   :align: center
+
+   Figura x – x   
+  
+   Fonte: Dos autores (2026).
+
+
+
 Testes
 ======
 
