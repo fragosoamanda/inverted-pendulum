@@ -89,7 +89,7 @@ sendo responsáveis pela  estruturação e espaçamento entre os níveis do sist
    Fonte: Dos autores (2026).
 
 Adicionalmente, o conjunto de porcas apresenta massa total de 104 g, 
-que contribui significativamente para a massa no seu total, embora suas dimensões não sejam relevantes para a modelagem dinâmica.
+que contribui significativamente para a massa no seu total, embora suas dimensões não sejam relevantes.
 
 .. figure:: img/porcas.jpg
    :width: 30%
@@ -100,7 +100,7 @@ que contribui significativamente para a massa no seu total, embora suas dimensõ
    Fonte: Dos autores (2026).
 
 
-O conjunto motor-roda possui massa de 241 g, com diâmetro de roda de 65,4 mm, sendo este parâmetro essencial para
+O conjunto motor-roda possui massa de 241 g, com diâmetro de roda de 65,4 mm, sendo  essencial para
 a relação entre deslocamento linear e rotação do motor.
 
 
@@ -116,13 +116,13 @@ A partir desses dados, torna-se possível construir um modelo  aproximado do sis
 
 Além disso, foi realizado o levantamento dos componentes necessários para o desenvolvimento do sistema
 de controle do pêndulo invertido. Entretanto, como o robô já possui todos os elementos mecânicos e 
-de atuação, não houve necessidade de aquisição ou substituição desses componentes.
+de atuação, não houve necessidade de aquisição ou substituição desses componentes por hora.
 
 Dessa forma, a única decisão de hardware relevante nesta etapa foi a escolha do microcontrolador responsável pela 
 implementação do controle. Optou-se pela utilização da placa Blackpill (STM32F4), devido à sua capacidade de processamento, 
 maior frequência de operação, presença de periféricos como temporizadores de alta resolução, comunicação serial e 
 interfaces de entrada/saída, 
-além de oferecer melhor desempenho em aplicações de controle em tempo real quando comparada a alternativas mais simples.
+além de oferecer melhor desempenho em aplicações de controle em tempo real quando comparada a outras alternativas.
 
 .. figure:: img/bp.jpg
    :width: 30%
@@ -136,9 +136,9 @@ Testes
 ======
 Para a realização dos testes, foi desenvolvida uma interface dedicada à aquisição de dados do giroscópio e do acelerômetro do sensor MPU6050. Inicialmente, essa interface foi projetada para operação no microcontrolador STM32F4. No entanto, após diversas tentativas de implementação, identificou-se um problema na comunicação via protocolo I²C, o qual não pôde ser solucionado dentro do prazo disponível.
 
-Dessa forma, optou-se pela utilização da   plataforma Arduino para a aquisição dos dados, garantindo a continuidade dos experimentos e a confiabilidade das medições.
+Dessa forma, optou-se pela utilização do Arduino para a aquisição dos dados.
 
-A seguir, é apresentado uma tabela  correspondentes aos dados obtidos do giroscópio durante o processo de calibração. 
+A seguir, apresenta-se uma tabela com os dados obtidos do giroscópio durante o processo de calibração. As amostras são transmitidas em blocos de quatro valores devido ao comportamento do buffer da interface UART. Para a construção dos gráficos, considerou-se espaçamento temporal uniforme entre as amostras, assumindo tempo de aquisição constante.
 
 +---------------+-------------------------------------------+---------------------------+
 |Eixo Vertical  |    Inclinação para frente e para trás     |   Inclinação para lateral | 
@@ -146,6 +146,10 @@ A seguir, é apresentado uma tabela  correspondentes aos dados obtidos do girosc
 |     -0,02     |                   0,00                    |           -0,03           | 
 +---------------+-------------------------------------------+---------------------------+
 |     -0,02     |                   0,01                    |           -0,03           |      
++---------------+-------------------------------------------+---------------------------+
+|     ...       |                   ....                    |           .....           | 
++---------------+-------------------------------------------+---------------------------+
+|     -0,03     |                   0,01                    |           -0,05           | 
 +---------------+-------------------------------------------+---------------------------+
 |     -0,03     |                   0,01                    |           -0,04           | 
 +---------------+-------------------------------------------+---------------------------+
@@ -162,12 +166,14 @@ Um recorte representativo dos resultados obtidos é apresentado a seguir.
 +---------------+-------------------------------------------+---------------------------+
 |     1,04      |                  -19,10                   |           -0,38           |      
 +---------------+-------------------------------------------+---------------------------+
+|    ....       |                  ....                     |           ....            | 
++---------------+-------------------------------------------+---------------------------+
 |     1,04      |                  -19,21                   |           -0,37           | 
 +---------------+-------------------------------------------+---------------------------+
 |     1,04      |                  -20,02                   |           -0,40           | 
 +---------------+-------------------------------------------+---------------------------+
 Após a etapa de calibração, foi realizado um ensaio em malha aberta, no qual foram obtidos os seguintes recortes de dados experimentais. O teste não foi conduzido até a queda completa do pêndulo, uma vez que o microcontrolador não estava fixado à estrutura. 
-Nessas condições, a queda total poderia comprometer as conexões elétricas ou até ocasionar a ruptura de fios.
+Nessas condições, a queda total poderia comprometer as conexões elétricas.
 
 Dessa forma, o pêndulo foi inicialmente posicionado na vertical e liberado, sendo permitido seu movimento até aproximadamente 45°,
 para  garantir a integridade do sistema durante a aquisição dos dados
@@ -185,6 +191,8 @@ para  garantir a integridade do sistema durante a aquisição dos dados
 +---------------+-------------------------------------------+---------------------------+
 |    -0,32      |                  -13,65                   |           -0,22           | 
 +---------------+-------------------------------------------+---------------------------+
+|     ...       |                   ...                     |           ...             | 
++---------------+-------------------------------------------+---------------------------+
 |    -0,58      |                  -24,38                   |           -0,31           | 
 +---------------+-------------------------------------------+---------------------------+
 |    -0,89      |                  -40,13                   |           -0,39           | 
@@ -195,7 +203,7 @@ para  garantir a integridade do sistema durante a aquisição dos dados
 Assim, foi possível construir um gráfico representativo da evolução angular do pêndulo ao longo do tempo, 
 permitindo a análise de sua queda em malha aberta.
 
-.. figure:: img/pitch.jpg
+.. figure:: img/pitch.png
    :width: 50%
    :align: center
 
