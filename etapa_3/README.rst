@@ -56,7 +56,7 @@ o comportamento temporal das variáveis de estado do sistema, como posição do 
 senod possivel avaliar o desempenho do controlador em relação ao tempo de acomodação, estabilidade e capacidade de rejeição das perturbações.
 Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
 
- .. figure:: img/gif.gif
+.. figure:: img/gif.gif
    :width: 30%
    :align: center
 
@@ -75,8 +75,7 @@ e a capacidade do controlador em estabilizar o pêndulo na posição de equilíb
 
 Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos durante a simulação do pêndulo invertido, podem ser visualizados a seguir.
   
-  
-  .. figure:: img/blocos.png
+   .. figure:: img/blocos.png
    :width: 70%
    :align: center
 
@@ -85,7 +84,7 @@ Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos dur
    Fonte: Dos autores (2026).
 
  
- .. figure:: img/gif.gif
+.. figure:: img/gif.gif
    :width: 70%
    :align: center
 
