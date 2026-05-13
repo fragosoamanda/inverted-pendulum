@@ -83,15 +83,13 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
   
    Fonte: Dos autores (2026).
 
-
-.. figure:: img/posicao.png
+.. figure:: img/posição.png
    :width: 40%
    :align: center
 
    Figura 2 –Posição.   
   
    Fonte: Dos autores (2026).
-
 
 .. figure:: img/velocidadeAng.png
    :width: 40%
@@ -101,8 +99,7 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
   
    Fonte: Dos autores (2026).
 
-
- .. figure:: img/sinalControle.png
+.. figure:: img/sinalControle.png
    :width: 40%
    :align: center
 
