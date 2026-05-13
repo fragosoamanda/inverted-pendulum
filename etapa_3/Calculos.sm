@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Studio Desktop" version="1.2.9018.0"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="120">
+    <identity>
+      <id>6f1034fc-c344-4d97-89a0-2b13f03270d5</id>
+      <revision>2</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>0</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="9" orientation="Portrait" width="827" height="1169" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Studio Desktop" version="1.2.9018.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.11.9018.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="SpecialFunctions" version="1.12.9018.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="TextRegion" version="1.11.9018.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="27" top="9" width="179" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Equaç0ão de Estados</p>
+        </content>
+      </text>
+    </region>
+    <region left="117" top="45" width="145" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 12px;">x_dot := A*x + B*u</p>
+        </content>
+      </text>
+    </region>
+    <region left="27" top="90" width="162" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Vetores de Estados</p>
+        </content>
+      </text>
+    </region>
+    <region left="117" top="117" width="109" height="96" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">x</e>
+          <e type="operand">x_dot</e>
+          <e type="operand">θ</e>
+          <e type="operand">θ_dot</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="27" top="216" width="140" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Termo Auxiliar p</p>
+        </content>
+      </text>
+    </region>
+    <region left="81" top="252" width="207" height="40" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">p</e>
+          <e type="operand">J</e>
+          <e type="operand">M</e>
+          <e type="operand">m</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">M</e>
+          <e type="operand">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="27" top="315" width="165" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Entrada do controle</p>
+        </content>
+      </text>
+    </region>
+    <region left="99" top="351" width="55" height="27" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">F</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="207" top="351" width="193" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 12px;">(Força aplicada ao carro)</p>
+        </content>
+      </text>
+    </region>
+    <region left="27" top="423" width="280" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Matriz  de estados A - Linearização</p>
+        </content>
+      </text>
+    </region>
+    <region left="63" top="459" width="235" height="151" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">A</e>
+          <e type="operand">0</e>
+          <e type="operand">1</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">g</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">p</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">1</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">m</e>
+          <e type="operand">g</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">M</e>
+          <e type="operand">m</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">p</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">0</e>
+          <e type="operand">4</e>
+          <e type="operand">4</e>
+          <e type="function" args="18">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="36" top="639" width="166" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Matriz  de entrada B</p>
+        </content>
+      </text>
+    </region>
+    <region left="90" top="684" width="140" height="149" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">B</e>
+          <e type="operand">0</e>
+          <e type="operand">J</e>
+          <e type="operand">m</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">p</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">θ</e>
+          <e type="operand">m</e>
+          <e type="operand">L</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">p</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">4</e>
+          <e type="operand">1</e>
+          <e type="function" args="6">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="45" top="837" width="118" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Controle LQR</p>
+        </content>
+      </text>
+    </region>
+    <region left="81" top="882" width="92" height="27" color="#000000" fontSize="12">
+      <math optimize="2">
+        <input>
+          <e type="operand">u</e>
+          <e type="operand">K</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="27" top="909" width="338" height="36" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">K.i</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">K.2</e>
+          <e type="operand">x_dot</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">K.3</e>
+          <e type="operand">θ</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">K.4</e>
+          <e type="operand">θ_dot</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+        </input>
+      </math>
+    </region>
+    <region left="18" top="945" width="331" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 12px;">O ganho K é calculado minimizando o custo:</p>
+        </content>
+      </text>
+    </region>
+    <region left="54" top="972" width="261" height="82" color="#000000" fontSize="12">
+      <math error="64">
+        <input>
+          <e type="operand">J</e>
+          <e type="operand">x</e>
+          <e type="operand">T</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">Q</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">u</e>
+          <e type="operand">T</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">R</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">u</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand">t</e>
+          <e type="operand">0</e>
+          <e type="operand">∞</e>
+          <e type="function" args="4">int</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="324" top="981" width="418" height="62" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 12px;">Q penaliza os estados (posição, velocidade, ângulo, vel. angular)<br />R penaliza o esforço de controle (força)</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="1134" width="161" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-weight: bold; font-size: 12px;">Equação de Riccati</p>
+        </content>
+      </text>
+    </region>
+    <region left="36" top="1152" width="162" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 12px;">encontrar a matriz P:</p>
+        </content>
+      </text>
+    </region>
+    <region left="81" top="1197" width="332" height="39" color="#000000" fontSize="12">
+      <math optimize="2" error="68" errorLocation="25">
+        <input>
+          <e type="operand">A</e>
+          <e type="operand">T</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">P</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P</e>
+          <e type="operand">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">P</e>
+          <e type="operand">B</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">R</e>
+          <e type="operand">1</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">B</e>
+          <e type="operand">T</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">Q</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">0</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="63" top="1260" width="130" height="26" color="#000000" fontSize="12">
+      <text lang="cpp" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 12px;">Calcula K como:</p>
+        </content>
+      </text>
+    </region>
+    <region left="135" top="1314" width="140" height="39" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">K</e>
+          <e type="operand">R</e>
+          <e type="operand">1</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">B</e>
+          <e type="operand">T</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+  </regions>
+</worksheet>
