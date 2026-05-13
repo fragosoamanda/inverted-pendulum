@@ -33,13 +33,50 @@ Controlador
  bem como a substituição dos parâmetros físicos previamente identificados. 
  As equações desenvolvidas e os respectivos valores utilizados podem ser observados a seguir.
 
- .. figure:: img/.jpg
-   :width: 30%
+.. figure:: img/velocidade.png
+   :width: 40%
    :align: center
 
-   Figura 2 – Plataformas do robô.   
+   Figura 2 – Velocidade.   
   
    Fonte: Dos autores (2026).
+   
+
+.. figure:: img/angulo.png
+   :width: 40%
+   :align: center
+
+   Figura 2 – Ângulo.   
+  
+   Fonte: Dos autores (2026).
+
+
+.. figure:: img/posicao.png
+   :width: 40%
+   :align: center
+
+   Figura 2 –Posição.   
+  
+   Fonte: Dos autores (2026).
+
+
+.. figure:: img/velocidadeAng.png
+   :width: 40%
+   :align: center
+
+   Figura 2 – Velocidade Angular.   
+  
+   Fonte: Dos autores (2026).
+
+
+ .. figure:: img/sinalControle.png
+   :width: 40%
+   :align: center
+
+   Figura 2 – Sinal de Controle.   
+  
+   Fonte: Dos autores (2026).
+
 
 
 Durante o desenvolvimento do controlador, 
