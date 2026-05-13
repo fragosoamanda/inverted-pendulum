@@ -33,6 +33,39 @@ Controlador
  bem como a substituição dos parâmetros físicos previamente identificados. 
  As equações desenvolvidas e os respectivos valores utilizados podem ser observados a seguir.
 
+
+
+Durante o desenvolvimento do controlador, 
+conversar com o  professor da matéria de controle, 
+optou-se inicialmente por desconsiderar os coeficientes práticos de amortecimento translacional e rotacional do sistema, 
+assumindo-os como nulos. Isso foi adotado considerando o pior cenário e simplificando a etapa inicial de modelagem e validação do controlador.
+
+Após a obtenção completa do modelo matemático, foi utilizado o software MATLAB para a realização das simulações e validação do controlador projetado.
+Por meio das simulações, foi possível ajustar os parâmetros da matriz de ponderação do controlador LQR, analisar a resposta dinâmica 
+do sistema e verificar a estabilidade do pêndulo.
+
+A partir dos resultados obtidos nas simulações, foi possível observar
+o comportamento temporal das variáveis de estado do sistema, como posição do carro, velocidade, ângulo do pêndulo e velocidade angular,
+senod possivel avaliar o desempenho do controlador em relação ao tempo de acomodação, estabilidade e capacidade de rejeição das perturbações.
+Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
+
++---------------+---------+-----------+-----------+----------+
+|    Ganhos K   | -3.1623 |  -4.9994  |  50.9704  |  8.0437  | 
++---------------+---------+-----------+-----------+----------+
+
++---------------+--------------------------------+
+|      Autovalores em malha fechada:             |        
++---------------+--------------------------------+
+|              -11.5614 + 0.0000i                |
++---------------+--------------------------------+
+|              -7.1087 + 0.0000i                 |
++------------------------------------------------+
+|              -0.7979 + 0.7363i                 |
++------------------------------------------------+
+|              -0.7979 - 0.7363i                 |      
++------------------------------------------------+
+
+
 .. figure:: img/velocidade.png
    :width: 40%
    :align: center
@@ -76,31 +109,6 @@ Controlador
    Figura 2 – Sinal de Controle.   
   
    Fonte: Dos autores (2026).
-
-
-
-Durante o desenvolvimento do controlador, 
-conversar com o  professor da matéria de controle, 
-optou-se inicialmente por desconsiderar os coeficientes práticos de amortecimento translacional e rotacional do sistema, 
-assumindo-os como nulos. Isso foi adotado considerando o pior cenário e simplificando a etapa inicial de modelagem e validação do controlador.
-
-Após a obtenção completa do modelo matemático, foi utilizado o software MATLAB para a realização das simulações e validação do controlador projetado.
-Por meio das simulações, foi possível ajustar os parâmetros da matriz de ponderação do controlador LQR, analisar a resposta dinâmica 
-do sistema e verificar a estabilidade do pêndulo.
-
-A partir dos resultados obtidos nas simulações, foi possível observar
-o comportamento temporal das variáveis de estado do sistema, como posição do carro, velocidade, ângulo do pêndulo e velocidade angular,
-senod possivel avaliar o desempenho do controlador em relação ao tempo de acomodação, estabilidade e capacidade de rejeição das perturbações.
-Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
-
-.. figure:: img/gif.gif
-   :width: 30%
-   :align: center
-
-   Figura 2 – Plataformas do robô.   
-  
-   Fonte: Dos autores (2026).
-
 Além disso, foi realizada a simulação do pêndulo invertido utilizando o ambiente Simulink, 
 integrado ao software MATLAB. Inicialmente, foi desenvolvido o modelo em espaço de estados do sistema por meio de blocos,
 permitindo representar matematicamente a dinâmica do pêndulo invertido dentro do ambiente de simulação.
