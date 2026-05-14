@@ -99,12 +99,12 @@ As equações desenvolvidas e os respectivos valores utilizados podem ser observ
    :align: center
 
    Figura 14 – Autovalores do Sistema.
-.. figure:: img/Autovalores.png
+.. figure:: img/autovalores.png
    :width: 30%
    :align: center
 
    Figura 15 – Discretização.
-.. figure:: img/sdiscretizacao.png
+.. figure:: img/discretizacao.png
    :width: 30%
    :align: center
 
