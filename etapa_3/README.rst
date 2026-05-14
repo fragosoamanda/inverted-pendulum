@@ -98,15 +98,17 @@ As equações desenvolvidas e os respectivos valores utilizados podem ser observ
    :width: 30%
    :align: center
 
-   Figura 14 – Autovalores do Sistema.
+    Figura 14 – Autovalores do Sistema.
 .. figure:: img/Autovalores.png
    :width: 30%
    :align: center
 
+
    Figura 15 – Discretização.
-.. figure:: img/sdiscretizacao.png
+.. figure:: img/discretizacao.png
    :width: 30%
    :align: center
+
 
    Figura 16 – Matriz Discretizada Ad.
 .. figure:: img/matrizDis.png
