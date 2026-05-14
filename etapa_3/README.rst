@@ -98,13 +98,8 @@ As equações desenvolvidas e os respectivos valores utilizados podem ser observ
    :width: 30%
    :align: center
 
-<<<<<<< HEAD
-   Figura 14 – Autovalores do Sistema.
-.. figure:: img/autovalores.png
-=======
     Figura 14 – Autovalores do Sistema.
-.. figure:: img/Autovalores.png
->>>>>>> 567dce4e82f699ec9f546c97d92c4ff24bd5ef9f
+.. figure:: img/autovalores.png
    :width: 30%
    :align: center
 
