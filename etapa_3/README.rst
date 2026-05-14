@@ -98,20 +98,28 @@ As equações desenvolvidas e os respectivos valores utilizados podem ser observ
    :width: 30%
    :align: center
 
+<<<<<<< HEAD
    Figura 14 – Autovalores do Sistema.
 .. figure:: img/autovalores.png
+=======
+    Figura 14 – Autovalores do Sistema.
+.. figure:: img/Autovalores.png
+>>>>>>> 567dce4e82f699ec9f546c97d92c4ff24bd5ef9f
    :width: 30%
    :align: center
+
 
    Figura 15 – Discretização.
 .. figure:: img/discretizacao.png
    :width: 30%
    :align: center
 
+
    Figura 16 – Matriz Discretizada Ad.
 .. figure:: img/matrizDis.png
    :width: 30%
    :align: center
+
 
 Durante o desenvolvimento do controlador, 
 conversar com o  professor da matéria de controle, 
