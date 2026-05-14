@@ -23,15 +23,15 @@ Desenvolvimento
 
 Controlador
 ===========
- Nessa etapa foi realizado o desenvolvimento do controlador, após a obtenção dos 
- parâmetros necessários para a modelagem do sistema. 
- Inicialmente, foi desenvolvido o modelo matemático teórico do pêndulo invertido, 
- utilizado como base para o projeto do controlador. 
- Como a estratégia de controle adotada foi o controlador
- LQR (Linear Quadratic Regulator), 
- foram obtidas as equações de espaço de estados do sistema, 
- bem como a substituição dos parâmetros físicos previamente identificados. 
- As equações desenvolvidas e os respectivos valores utilizados podem ser observados a seguir.
+Nessa etapa foi realizado o desenvolvimento do controlador, após a obtenção dos 
+parâmetros necessários para a modelagem do sistema. 
+Inicialmente, foi desenvolvido o modelo matemático teórico do pêndulo invertido, 
+utilizado como base para o projeto do controlador. 
+Como a estratégia de controle adotada foi o controlador
+LQR (Linear Quadratic Regulator), 
+foram obtidas as equações de espaço de estados do sistema, 
+bem como a substituição dos parâmetros físicos previamente identificados. 
+As equações desenvolvidas e os respectivos valores utilizados podem ser observados a seguir.
 
    Figura 1 – Matriz P.
 .. figure:: img/MatrizP.png
