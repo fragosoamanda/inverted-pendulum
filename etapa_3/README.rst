@@ -113,6 +113,7 @@ As equações desenvolvidas e os respectivos valores utilizados podem ser observ
    :width: 30%
    :align: center
 
+
 Durante o desenvolvimento do controlador, 
 conversar com o  professor da matéria de controle, 
 optou-se inicialmente por desconsiderar os coeficientes práticos de amortecimento translacional e rotacional do sistema, 
