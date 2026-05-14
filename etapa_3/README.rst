@@ -33,6 +33,56 @@ Controlador
  bem como a substituição dos parâmetros físicos previamente identificados. 
  As equações desenvolvidas e os respectivos valores utilizados podem ser observados a seguir.
 
+   Figura 1 – Matriz P.
+.. figure:: img/MatrizP.png
+   :width: 40%
+   :align: center
+  
+   Figura 2 – Matriz A.
+.. figure:: img/matrizA.png
+   :width: 40%
+   :align: center
+
+   Figura 3 – Matriz B.
+.. figure:: img/matrizB.png
+   :width: 40%
+   :align: center
+
+   Figura 4 – Vetor.
+.. figure:: img/vetor.png
+   :width: 40%
+   :align: center
+
+   Figura 5 – Equações de Estados.
+.. figure:: img/eqEstado.png
+   :width: 40%
+   :align: center
+
+   Figura 6 – Matriz Q.
+.. figure:: img/matrizQ.png
+   :width: 40%
+   :align: center
+
+   Figura 7 – Matriz R.
+.. figure:: img/matrizR.png
+   :width: 40%
+   :align: center
+
+   
+   Figura 8 – Função Custo do LQR.
+.. figure:: img/CustoLQR.png
+   :width: 40%
+   :align: center
+
+   Figura 9 – Função Algébrica de Riccati.
+.. figure:: img/fAlgebrica.png
+   :width: 40%
+   :align: center
+
+   Figura 10 – Ganho LQR.
+.. figure:: img/ganhoLQR.png
+   :width: 40%
+   :align: center
 
 
 Durante o desenvolvimento do controlador, 
@@ -83,13 +133,15 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
   
    Fonte: Dos autores (2026).
 
-.. figure:: img/posição.png
+
+.. figure:: img/posicao.png
    :width: 40%
    :align: center
 
    Figura 2 –Posição.   
   
    Fonte: Dos autores (2026).
+
 
 .. figure:: img/velocidadeAng.png
    :width: 40%
@@ -99,13 +151,15 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
   
    Fonte: Dos autores (2026).
 
-.. figure:: img/sinalControle.png
+
+ .. figure:: img/sinalControle.png
    :width: 40%
    :align: center
 
    Figura 2 – Sinal de Controle.   
   
    Fonte: Dos autores (2026).
+   
 Além disso, foi realizada a simulação do pêndulo invertido utilizando o ambiente Simulink, 
 integrado ao software MATLAB. Inicialmente, foi desenvolvido o modelo em espaço de estados do sistema por meio de blocos,
 permitindo representar matematicamente a dinâmica do pêndulo invertido dentro do ambiente de simulação.
