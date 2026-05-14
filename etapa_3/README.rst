@@ -150,26 +150,22 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
 .. figure:: img/velocidade.png
    :width: 40%
    :align: center
-
-   Figura 2 – Velocidade.   
-  
+   Figura 17 – Velocidade.   
    Fonte: Dos autores (2026).
    
-
 .. figure:: img/angulo.png
    :width: 40%
    :align: center
 
-   Figura 2 – Ângulo.   
+   Figura 18 – Ângulo.   
   
    Fonte: Dos autores (2026).
-
 
 .. figure:: img/posicao.png
    :width: 40%
    :align: center
 
-   Figura 2 –Posição.   
+   Figura 19 –Posição.   
   
    Fonte: Dos autores (2026).
 
@@ -178,7 +174,7 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
    :width: 40%
    :align: center
 
-   Figura 2 – Velocidade Angular.   
+   Figura 20 – Velocidade Angular.   
   
    Fonte: Dos autores (2026).
 
@@ -187,7 +183,7 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
    :width: 40%
    :align: center
 
-   Figura 2 – Sinal de Controle.   
+   Figura 21 – Sinal de Controle.   
   
    Fonte: Dos autores (2026).
    
@@ -206,7 +202,7 @@ Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos dur
    :width: 70%
    :align: center
 
-   Figura x – x   
+   Figura 22 – Diagrama de Blocos   
   
    Fonte: Dos autores (2026).
 
@@ -215,7 +211,7 @@ Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos dur
    :width: 70%
    :align: center
 
-   Figura x – x   
+   Figura 23 – Gif do pêndulo funcionando na simulação   
   
    Fonte: Dos autores (2026).
 
