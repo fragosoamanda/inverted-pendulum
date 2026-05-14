@@ -152,21 +152,20 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
    :align: center
    Figura 17 – Velocidade.   
    Fonte: Dos autores (2026).
-   
+
+
 .. figure:: img/angulo.png
    :width: 40%
    :align: center
-
    Figura 18 – Ângulo.   
-  
    Fonte: Dos autores (2026).
 
-.. figure:: img/posicao.png
+
+.. figure:: img/posição.png
    :width: 40%
    :align: center
 
    Figura 19 –Posição.   
-  
    Fonte: Dos autores (2026).
 
 
