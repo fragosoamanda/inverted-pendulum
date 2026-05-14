@@ -83,35 +83,36 @@ As equações desenvolvidas e os respectivos valores utilizados podem ser observ
    :width: 30%
    :align: center
 
- Figura 11 – Lei de controle.
+   Figura 11 – Lei de controle.
 .. figure:: img/controle.png
    :width: 30%
    :align: center
 
- Figura 12 – Lei de controle Expandida.
+   Figura 12 – Lei de controle Expandida.
 .. figure:: img/leiControle.png
    :width: 30%
    :align: center
 
- Figura 13 – Sistema em Malha Fechada.
+   Figura 13 – Sistema em Malha Fechada.
 .. figure:: img/sistemaMalha.png
    :width: 30%
    :align: center
 
- Figura 14 – Autovalores do Sistema.
+   Figura 14 – Autovalores do Sistema.
 .. figure:: img/Autovalores.png
    :width: 30%
    :align: center
 
- Figura 15 – Discretização.
+   Figura 15 – Discretização.
 .. figure:: img/sdiscretizacao.png
    :width: 30%
    :align: center
 
- Figura 16 – Matriz Discretizada Ad.
+   Figura 16 – Matriz Discretizada Ad.
 .. figure:: img/matrizDis.png
    :width: 30%
    :align: center
+
 Durante o desenvolvimento do controlador, 
 conversar com o  professor da matéria de controle, 
 optou-se inicialmente por desconsiderar os coeficientes práticos de amortecimento translacional e rotacional do sistema, 
