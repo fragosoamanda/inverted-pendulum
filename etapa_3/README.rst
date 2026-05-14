@@ -35,56 +35,83 @@ Controlador
 
    Figura 1 – Matriz P.
 .. figure:: img/MatrizP.png
-   :width: 40%
+   :width: 30%
    :align: center
   
    Figura 2 – Matriz A.
 .. figure:: img/matrizA.png
-   :width: 40%
+   :width: 30%
    :align: center
 
    Figura 3 – Matriz B.
 .. figure:: img/matrizB.png
-   :width: 40%
+   :width: 30%
    :align: center
 
-   Figura 4 – Vetor.
+   Figura 4 – Vetor de Estados.
 .. figure:: img/vetor.png
-   :width: 40%
+   :width: 30%
    :align: center
 
    Figura 5 – Equações de Estados.
 .. figure:: img/eqEstado.png
-   :width: 40%
+   :width: 30%
    :align: center
 
    Figura 6 – Matriz Q.
 .. figure:: img/matrizQ.png
-   :width: 40%
+   :width: 30%
    :align: center
 
    Figura 7 – Matriz R.
 .. figure:: img/matrizR.png
-   :width: 40%
+   :width: 30%
    :align: center
 
-   
    Figura 8 – Função Custo do LQR.
 .. figure:: img/CustoLQR.png
-   :width: 40%
+   :width: 30%
    :align: center
 
    Figura 9 – Função Algébrica de Riccati.
-.. figure:: img/fAlgebrica.png
-   :width: 40%
+.. figure:: img/fALgebrica.png
+   :width: 30%
    :align: center
 
    Figura 10 – Ganho LQR.
 .. figure:: img/ganhoLQR.png
-   :width: 40%
+   :width: 30%
    :align: center
 
+ Figura 11 – Lei de controle.
+.. figure:: img/controle.png
+   :width: 30%
+   :align: center
 
+ Figura 12 – Lei de controle Expandida.
+.. figure:: img/leiControle.png
+   :width: 30%
+   :align: center
+
+ Figura 13 – Sistema em Malha Fechada.
+.. figure:: img/sistemaMalha.png
+   :width: 30%
+   :align: center
+
+ Figura 14 – Autovalores do Sistema.
+.. figure:: img/Autovalores.png
+   :width: 30%
+   :align: center
+
+ Figura 15 – Discretização.
+.. figure:: img/sdiscretizacao.png
+   :width: 30%
+   :align: center
+
+ Figura 16 – Matriz Discretizada Ad.
+.. figure:: img/matrizDis.png
+   :width: 30%
+   :align: center
 Durante o desenvolvimento do controlador, 
 conversar com o  professor da matéria de controle, 
 optou-se inicialmente por desconsiderar os coeficientes práticos de amortecimento translacional e rotacional do sistema, 
