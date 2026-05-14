@@ -146,44 +146,44 @@ Os gráficos gerados e os respectivos resultados podem ser observados a seguir.
 |              -0.7979 - 0.7363i                 |      
 +------------------------------------------------+
 
-
 .. figure:: img/velocidade.png
    :width: 40%
    :align: center
-   Figura 17 – Velocidade.   
-   Fonte: Dos autores (2026).
 
+   Figura 17 – Velocidade.
+
+   Fonte: Dos autores (2026).
 
 .. figure:: img/angulo.png
    :width: 40%
    :align: center
-   Figura 18 – Ângulo.   
-   Fonte: Dos autores (2026).
 
+   Figura 18 – Ângulo.
+
+   Fonte: Dos autores (2026).
 
 .. figure:: img/posição.png
    :width: 40%
    :align: center
 
-   Figura 19 –Posição.   
-   Fonte: Dos autores (2026).
+   Figura 19 – Posição.
 
+   Fonte: Dos autores (2026).
 
 .. figure:: img/velocidadeAng.png
    :width: 40%
    :align: center
 
-   Figura 20 – Velocidade Angular.   
-  
+   Figura 20 – Velocidade Angular.
+
    Fonte: Dos autores (2026).
 
-
- .. figure:: img/sinalControle.png
+.. figure:: img/sinalControle.png
    :width: 40%
    :align: center
 
-   Figura 21 – Sinal de Controle.   
-  
+   Figura 21 – Sinal de Controle.
+
    Fonte: Dos autores (2026).
    
 Além disso, foi realizada a simulação do pêndulo invertido utilizando o ambiente Simulink, 
@@ -194,26 +194,23 @@ Essa etapa teve como principal objetivo verificar o funcionamento do controlador
 projetado antes da implementação prática no sistema físico. A partir da modelagem realizada,
 foi possível analisar a resposta dinâmica do sistema em malha fechada, observando o comportamento das variáveis de estado 
 e a capacidade do controlador em estabilizar o pêndulo na posição de equilíbrio.
-
 Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos durante a simulação do pêndulo invertido, podem ser visualizados a seguir.
   
-   .. figure:: img/blocos.png
+.. figure:: img/blocos.png
    :width: 70%
    :align: center
 
-   Figura 22 – Diagrama de Blocos   
-  
+   Figura 22 – Diagrama de Blocos.
+
    Fonte: Dos autores (2026).
 
- 
 .. figure:: img/gif.gif
    :width: 70%
    :align: center
 
-   Figura 23 – Gif do pêndulo funcionando na simulação   
-  
-   Fonte: Dos autores (2026).
+   Figura 23 – Gif do pêndulo funcionando na simulação.
 
+   Fonte: Dos autores (2026).
 
 
 Testes
