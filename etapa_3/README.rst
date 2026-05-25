@@ -220,11 +220,20 @@ Durante o desenvolvimento do shield, optou-se por disponibilizar todos os pinos 
 
 Como medida de proteção elétrica, foi adicionado um fusível na entrada de alimentação da placa. Esse componente tem a função de proteger tanto o shield quanto a placa principal contra possíveis curtos-circuitos ou sobrecorrentes durante os testes e operação do sistema. A utilização do fusível aumenta a segurança do projeto e reduz o risco de danos ao microcontrolador e aos demais componentes eletrônicos.
 
-O projeto eletrônico e o layout da PCB foram desenvolvidos no software KiCad. Inicialmente foi elaborado o esquemático elétrico contendo a conexão da Black Pill com os conectores de expansão, alimentação e circuitos auxiliares. Em seguida, foi realizado o roteamento das trilhas e posicionamento dos componentes visando uma montagem organizada e compacta.
+O projeto eletrônico e o layout da PCB foram desenvolvidos no software KiCad. Inicialmente foi elaborado o esquemático elétrico contendo a conexão da Black Pill com os conectores. Em seguida, foi realizado o roteamento das trilhas e posicionamento dos componentes visando uma montagem organizada e compacta.
 Para realizar a conexão da Black Pill ao shield, foi utilizado um conector do tipo Conn_02x20, representando os 40 pinos disponíveis da placa. Além disso, foram adicionados dois conectores Conn_01x20, responsáveis por disponibilizar externamente todos os GPIOs do microcontrolador para futuras implementações, podendo ser visualizados a seguir.
 
+.. figure:: img/Esquematico.png
+   :width: 40%
+   :align: center
 
-Os conectores utilizados seguem o padrão de pinos com passo de 2,54 mm, amplamente utilizado em placas de prototipagem e desenvolvimento eletrônico. A distância entre as duas fileiras de pinos da Black Pill também foi mantida conforme o padrão físico da placa, garantindo o correto encaixe do módulo no shield sem necessidade de adaptações mecânicas. 
+
+Os conectores utilizados seguem o padrão de pinos com passo de 2,54 mm, amplamente utilizado em placas de prototipagem e desenvolvimento eletrônico. A distância entre as duas fileiras de pinos da Black Pill também foi mantida conforme o padrão físico da placa de 15,24mm, garantindo o correto encaixe do módulo no shield sem necessidade de adaptações mecânicas, assim ficando como a imagem abaixo.
+
+.. figure:: img/PCB.png
+   :width: 40%
+   :align: center
+
 
 Testes
 ======
