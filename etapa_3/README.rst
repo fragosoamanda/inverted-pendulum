@@ -233,13 +233,13 @@ Após isso, realizou-se os ajustes no controle....
 
 Desenvolvimento do esquemático da placa controladora.
 *****************************************************
-O shield para a placa STM32 Black Pill foi desenvolvido com o objetivo de facilitar a integração do sistema de controle do pêndulo invertido, além de permitir futuras expansões do projeto. A proposta principal foi criar uma placa PCB dedicada que servisse como interface entre a Black Pill e os demais componentes eletrônicos do sistema, organizando as conexões e aumentando a confiabilidade do hardware.
+O shield para a placa STM32 Black Pill foi desenvolvido com o objetivo de facilitar a integração do sistema de controle do pêndulo invertido. A proposta principal foi criar uma placa PCB dedicada que servisse como interface entre a Black Pill e os demais componentes eletrônicos do sistema, organizando as conexões.
 
-Durante o desenvolvimento do shield, optou-se por disponibilizar todos os pinos do microcontrolador em conectores externos. Essa decisão foi tomada para tornar a placa mais flexível, permitindo futuras implementações e testes sem a necessidade de modificar o circuito principal.
+Durante o desenvolvimento do shield, optou-se por disponibilizar todos os pinos do microcontrolador em conectores externos. Isso foi feito  para tornar a placa mais flexível,e tambémm para maior facilidade, uma vez que a placa ja existente no pêndulo utiliza conectores externos e não fixos na placa.
 
-Como medida de proteção elétrica, foi adicionado um fusível na entrada de alimentação da placa. Esse componente tem a função de proteger tanto o shield quanto a placa principal contra possíveis curtos-circuitos ou sobrecorrentes durante os testes e operação do sistema. A utilização do fusível aumenta a segurança do projeto e reduz o risco de danos ao microcontrolador e aos demais componentes eletrônicos.
+Como medida de proteção elétrica, foi adicionado um fusível na entrada de alimentação da placa, com a função de proteger tanto o shield quanto a placa principal contra possíveis curtos-circuitos ou sobrecorrentes durante os testes e operação do sistema. A utilização do fusível aumenta a segurança do projeto e reduz o risco de danos ao microcontrolador e aos demais componentes eletrônicos.
 
-O projeto eletrônico e o layout da PCB foram desenvolvidos no software KiCad. Inicialmente foi elaborado o esquemático elétrico contendo a conexão da Black Pill com os conectores. Em seguida, foi realizado o roteamento das trilhas e posicionamento dos componentes visando uma montagem organizada e compacta.
+O projeto eletrônico e o layout da PCB foram desenvolvidos no software KiCad. Inicialmente foi elaborado o esquemático elétrico contendo a conexão da Black Pill com os conectores. Em seguida, foi realizado o roteamento das trilhas e posicionamento dos componentes visando que a placa ficasse compacta.
 Para realizar a conexão da Black Pill ao shield, foi utilizado um conector do tipo Conn_02x20, representando os 40 pinos disponíveis da placa. Além disso, foram adicionados dois conectores Conn_01x20, responsáveis por disponibilizar externamente todos os GPIOs do microcontrolador para futuras implementações, podendo ser visualizados a seguir.
 
 .. figure:: img/Esquematico.png
@@ -247,7 +247,7 @@ Para realizar a conexão da Black Pill ao shield, foi utilizado um conector do t
    :align: center
 
 
-Os conectores utilizados seguem o padrão de pinos com passo de 2,54 mm, amplamente utilizado em placas de prototipagem e desenvolvimento eletrônico. A distância entre as duas fileiras de pinos da Black Pill também foi mantida conforme o padrão físico da placa de 15,24mm, garantindo o correto encaixe do módulo no shield sem necessidade de adaptações mecânicas, assim ficando como a imagem abaixo.
+Os conectores utilizados seguem o padrão de pinos com passo de 2,54 mm, amplamente utilizado em placas de prototipagem e desenvolvimento eletrônico. A distância entre as duas fileiras de pinos da Black Pill também foi mantida conforme o padrão físico da placa de 15,24 mm,  sem necessidade de adaptações mecânicas, assim ficando como a imagem abaixo.
 
 .. figure:: img/PCB.png
    :width: 40%
