@@ -20,6 +20,13 @@ e a análise do comportamento dinâmico do sistema sob realimentação.
 
 Desenvolvimento
 ***************
+Definição dos componentes do hardware de controle.
+==================================================
+A definição dos componentes utilizados no hardware de controle já havia sido prevista na Etapa 2, 
+na qual foi considerado apenas o uso do microcontrolador STM32 (BlackPill). 
+Durante a Etapa 3, dedicada à implementação do controlador,
+constatou-se que a única necessidade da equipe para o hardware de controle era, de fato, 
+a utilização do STM32, sendo este suficiente para atender aos requisitos de processamento e execução do sistema de controle proposto.
 
 Controlador
 ===========
@@ -211,6 +218,18 @@ Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos dur
    Figura 23 – Gif do pêndulo funcionando na simulação.
 
    Fonte: Dos autores (2026).
+
+Testes em Malha Fechada
+=======================
+Após o desenvolvimento do sistema de controle, foram implementados os códigos dpara  à execução no microcontrolador,
+utilizando as rotinas e estruturas previamente definidas para aquisição de dados, processamento dos estados do sistema e atuação dos motores. Em seguida, iniciaram-se os primeiros  testes  em malha aberta com o controlador.
+
+Os resultados iniciais mostraram que o carrinho apresentava comportamento de  tentativa de estabilização do pêndulo. 
+Entretanto, o sinal de controle aplicado aos motores possuía um valor de PWM muito alto, fazendo com que as rodas respondessem com velocidade muito alta. Como consequência, o sistema não conseguia manter o pêndulo estabilizado, devido à atuação  agressiva dos motores e à incapacidade de realizar correções suaves e controladas.
+
+Dessa forma, ainda durante os testes iniciais, realizou-se a redução do valor máximo permitido para o PWM dos motores, com o objetivo de diminuir a velocidade de deslocamento do carrinho e tornar a resposta do sistema mais controlável.
+
+Após isso, realizou-se os ajustes no controle....
 
 Desenvolvimento do esquemático da placa controladora.
 *****************************************************
