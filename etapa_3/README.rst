@@ -221,7 +221,7 @@ Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos dur
 
 Testes em Malha Fechada
 =======================
-Após o desenvolvimento do sistema de controle, foram implementados os códigos dpara  à execução no microcontrolador,
+Após o desenvolvimento do sistema de controle, foram implementados os códigos para  à execução no microcontrolador,
 utilizando as rotinas e estruturas previamente definidas para aquisição de dados, processamento dos estados do sistema e atuação dos motores. Em seguida, iniciaram-se os primeiros  testes  em malha aberta com o controlador.
 
 Os resultados iniciais mostraram que o carrinho apresentava comportamento de  tentativa de estabilização do pêndulo. 
