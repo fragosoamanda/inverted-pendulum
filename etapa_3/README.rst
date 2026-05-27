@@ -267,6 +267,12 @@ Descrição dos testes/validações realizadas.
 Referências (links/datasheets/livros)
 *************************************
 
-- `nRF Connect SDK <https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.4.2/nrf/getting_started/modifying.html#configure-application>`_
+MATHWORKS. Get Started with Simulink. Natick, 2026. Disponível em: MathWorks Simulink Getting Started. Acesso em:11 maio 2026.
+
+MATHWORKS. lqr. Natick, 2026. Disponível em: MathWorks LQR Documentation. Acesso em: 8 maio 2026.
+
+UNIVERSITY OF MICHIGAN. Control Tutorials for MATLAB and Simulink (CTMS): Simulink Basics. Ann Arbor, [s.d.]. Disponível em: CTMS Simulink Basics. Acesso em:11 maio 2026.
+
+
 
 
