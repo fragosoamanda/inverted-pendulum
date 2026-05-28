@@ -25,7 +25,7 @@ Definição dos componentes do hardware de controle.
 A definição dos componentes utilizados no hardware de controle já havia sido prevista na Etapa 2, na qual foi considerado apenas o  
 uso do microcontrolador STM32 BlackPill. Durante a Etapa 3, dedicada à implementação do controlador, constatou-se que a utilização do STM32 era suficiente para atender aos requisitos de processamento e execução do sistema de controle.
 
-Com relação as interfaces de comunicação utilizadas foram o protocolo I2C para comunicação com o sensor MPU6050, USB CDC para envio dos dados ao computador e UART para fins auxiliares de depuração.
+Com relação as interfaces de comunicação utilizadas foram o protocolo I2C para comunicação com o sensor MPU6050, USB CDC para envio dos dados ao computador e UART para comunicar com encoder do motor.
 
 Controlador
 ===========
