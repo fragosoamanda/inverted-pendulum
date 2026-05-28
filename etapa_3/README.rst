@@ -253,14 +253,6 @@ Os conectores utilizados seguem o padrão de pinos com passo de 2,54 mm, amplame
    :align: center
 
 
-Testes
-======
-
-Descrição dos testes/validações realizadas.
-
-
-(Outras subseções se necessário)
-================================
 
 
 Referências (links/datasheets/livros)
