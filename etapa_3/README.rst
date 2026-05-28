@@ -248,7 +248,7 @@ Para realizar a conexão da Black Pill ao shield, foi utilizado um conector do t
 
 Os conectores utilizados seguem o padrão de pinos com passo de 2,54 mm, amplamente utilizado em placas de prototipagem e desenvolvimento eletrônico. A distância entre as duas fileiras de pinos da Black Pill também foi mantida conforme o padrão físico da placa de 15,24 mm,  sem necessidade de adaptações mecânicas, assim ficando como a imagem abaixo.
 
-.. figure:: img/PCB.png
+.. figure:: img/PCB3.png
    :width: 40%
    :align: center
 
