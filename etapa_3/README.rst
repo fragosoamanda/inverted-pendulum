@@ -220,15 +220,20 @@ Os blocos utilizados na modelagem do sistema, bem como os resultados obtidos dur
 
 Testes em Malha Fechada
 =======================
-Após o desenvolvimento do sistema de controle, foram implementados os códigos para  à execução no microcontrolador,
-utilizando as rotinas e estruturas previamente definidas para aquisição de dados, processamento dos estados do sistema e atuação dos motores. Em seguida, iniciaram-se os primeiros  testes  em malha aberta com o controlador.
+
+Após o desenvolvimento do sistema de controle no MATLAB, os parâmetros obtidos foram implementados no código previamente desenvolvido para o microcontrolador. Para isso, foi utilizada a estimação do ângulo por meio da fusão dos dados do acelerômetro e do giroscópio. Além disso, a força calculada pelo controlador LQR foi convertida em um sinal PWM para o acionamento do motor.
+
+Também foi implementada a medição da posição do carrinho utilizando o encoder. Ademais, foi adicionada uma rotina de segurança para desligar o motor automaticamente caso o sistema perca o controle.
+
+ A partir disso,foram implementados os códigos para  à execução no microcontrolador,
+utilizando a e estruturas previamente definidas para aquisição de dados, processamento dos estados do sistema e atuação dos motores. Em seguida, iniciaram-se os primeiros  testes  em malha aberta com o controlador.
 
 Os resultados iniciais mostraram que o carrinho apresentava comportamento de  tentativa de estabilização do pêndulo. 
 Entretanto, o sinal de controle aplicado aos motores possuía um valor de PWM muito alto, fazendo com que as rodas respondessem com velocidade muito alta. Como consequência, o sistema não conseguia manter o pêndulo estabilizado, devido à atuação  agressiva dos motores e à incapacidade de realizar correções suaves e controladas.
 
 Dessa forma, ainda durante os testes iniciais, realizou-se a redução do valor máximo permitido para o PWM dos motores, com o objetivo de diminuir a velocidade de deslocamento do carrinho e tornar a resposta do sistema mais controlável.
 
-Após isso, realizou-se os ajustes no controle....
+
 
 Desenvolvimento do esquemático da placa controladora.
 *****************************************************
