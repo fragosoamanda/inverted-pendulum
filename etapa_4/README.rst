@@ -26,6 +26,16 @@ Durante essa etapa também foi identificado outro problema relacionado aos encod
 
 Isso ficou mais claro ao testar outro motor, no qual foi possível observar o acionamento de uma luz indicativa que não acendia no motor instalado no robô. A partir disso, as conexões foram  alteradas. Após a correção da ligação dos pinos, os encoders passaram a funcionar, mostrando que o problema não estava no software, mas sim na conexão elétrica feita com base em uma pinagem incorreta.
 
+ Figura 1 – Conexões antigas.
+.. figure:: img/.png
+   :width: 30%
+   :align: center
+
+ Figura 2 – Conexões Novas.
+.. figure:: img/.png
+   :width: 30%
+   :align: center
+
 
 Testes
 ======
