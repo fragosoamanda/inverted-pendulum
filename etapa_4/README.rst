@@ -16,7 +16,15 @@ A etapa 4 é a etapa mais curta, uma vez que essa se  refere apenas aos ajustes 
 Desenvolvimento
 ***************
 
-Apresentar o desenvolvimento da etapa contendo detalhes de implementação (se houver) de hardware e software. Adicionar pesqusisas realizadas bem como testes realizados.
+A primeira parte do desenvolvimento da etapa 4 começou com  a melhoria da placa que já estava instalada no robô. Essa placa era antiga e, como foi necessário retirar e adicionar alguns cabos durante os testes, percebeu-se que as soldas dos cabos estavam bastante danificadas. Isso fazia com que os cabos se desconectassem com frequência e até identificar que o problema era esse, demorava bastante tempo.
+
+Esse problema acontecia principalmente porque, durante os testes do sistema de controle, o robô precisava ser colocado em funcionamento várias vezes e  como estávamos testando acabava caindo durante os ensaios. Com o impacto das quedas e a movimentação dos cabos, as conexões acabavam se soltando, prejudicando os testes e dificultando a identificação correta dos problemas do sistema.
+
+Para resolver isso, foram adicionados conectores na placa. Com essa alteração, as ligações ficaram mais organizadas, a montagem ficou mais limpa e a chance de desconexão diminuiu. Além disso, o uso de conectores facilita a manutenção, já que caso seja necessário retirar a placa do robô eles poder ser removidos e recolocados com mais segurança.
+
+Durante essa etapa também foi identificado outro problema relacionado aos encoders dos motores, que não estavam funcionando. Inicialmente, acreditava-se que o erro poderia estar no código, pois na primeira vez que testamos eles estavam funcionando. Porém, ao analisar a placa e comparar as conexões com o datasheet do fabricante, verificou-se que a pinagem indicada não correspondia ao comportamento real observado.
+
+Isso ficou mais claro ao testar outro motor, no qual foi possível observar o acionamento de uma luz indicativa que não acendia no motor instalado no robô. A partir disso, as conexões foram  alteradas. Após a correção da ligação dos pinos, os encoders passaram a funcionar, mostrando que o problema não estava no software, mas sim na conexão elétrica feita com base em uma pinagem incorreta.
 
 
 Testes
