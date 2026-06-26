@@ -36,6 +36,32 @@ Isso ficou mais claro ao testar outro motor, no qual foi possível observar o ac
    :width: 30%
    :align: center
 
+Após a melhoria da placa já existente no robô, iria ser iniciada a confecção da nova PCB, considerando as modificações realizadas no KiCad a partir das orientações dos professores. Isso porque, durante os testes, percebeu-se que a montagem em protoboard estava dificultando bastante a organização do sistema.
+
+Como eram utilizados muitos cabos, as conexões  ficavam mais frágeis e confusas. Isso atrapalhava principalmente a etapa de testes, que é uma das partes mais importantes do desenvolvimento, pois é nela que se verificava se o robô esta respondendo corretamente se o sistema de controle esta funcionando como esperado.
+
+Por esse motivo, foi sugerida a utilização de uma placa perfurada de fenolite, também conhecida como  placa padrão ilhada. Essa placa já possui furos para a fixação dos componentes e pode ser cortada e ajustada para caber melhor dentro do robô. Diferente de uma PCB típica, na placa ilhada as trilhas são feitas manualmente,  por meio de soldas e pequenos fios de ligação.
+
+Figura3 – Placa Padrão Ilhada.
+.. figure:: img/.png
+   :width: 30%
+   :align: center
+
+Como o esquemático da placa já havia sido desenvolvido no KiCad, a montagem nessa placa foi feita seguindo as conexões já definidas anteriormente. Dessa forma, foi necessário apenas analisar o esquemático e reproduzir manualmente as ligações entre os componentes.
+
+Essa solução foi escolhida por ser mais simples e rápida, que era o que o grupo precisava. Como o objetivo principal naquele momento era validar o funcionamento do robô, principalmente a parte de controle, a fabricação de uma PCB definitiva poderia atrasar o desenvolvimento. A placa perfurada permitiu montar um circuito mais organizado do que a protoboard, mas sem exigir todo o processo de fabricação de uma placa final.
+
+Além disso, foi adicionado um conector do tipo fita, com o objetivo de facilitar ainda mais as conexões  que vinham da placa já existente no robô. Com isso, a integração entre as placas ficou mais organizada e confiável, reduzindo a quantidade de fios soltos e facilitando, caso necessário, ajustes durante os testes.
+
+Figura 4 – Placa com os componentes no robô.
+.. figure:: img/.png
+   :width: 30%
+   :align: center
+
+Figura 5 – Conector fita utilizado.
+.. figure:: img/.png
+   :width: 30%
+   :align: center
 
 Testes
 ======
@@ -50,6 +76,10 @@ Descrição dos testes/validações realizadas.
 Referências (links/datasheets/livros)
 *************************************
 
-- `nRF Connect SDK <https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.4.2/nrf/getting_started/modifying.html#configure-application>`_
+SHENZHEN JINSHUNLAITE MOTOR CO., LTD. **37mm Round Spur Gear Motor**. [S. l.]: Aslong Motor, 2021. Disponível em: https://www.aslongdcmotor.com/photo/aslongdcmotor/document/26547/37mm%20Round%20Spur%20Gear%20Motor_PDF00.pdf. Acesso em: 25 jun. 2026.
+
+
+CASA DA ROBÓTICA. **Placa Fibra Ilhada 10x10 cm Padrão PCB Perfurada**. [S. l.], [s. d.]. Disponível em: https://www.casadarobotica.com/placa-fenolite-ilhada-10x10-cm-padrao-pcb-perfurada-arduino. Acesso em: 25 jun. 2026.
+
 
 
