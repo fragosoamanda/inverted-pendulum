@@ -27,12 +27,12 @@ Durante essa etapa também foi identificado outro problema relacionado aos encod
 Isso ficou mais claro ao testar outro motor, no qual foi possível observar o acionamento de uma luz indicativa que não acendia no motor instalado no robô. A partir disso, as conexões foram  alteradas. Após a correção da ligação dos pinos, os encoders passaram a funcionar, mostrando que o problema não estava no software, mas sim na conexão elétrica feita com base em uma pinagem incorreta.
 
  Figura 1 – Conexões antigas.
-.. figure:: img/.png
+.. figure:: img/conAntigas.png
    :width: 30%
    :align: center
 
  Figura 2 – Conexões Novas.
-.. figure:: img/.png
+.. figure:: img/conNova.png
    :width: 30%
    :align: center
 
@@ -43,7 +43,7 @@ Como eram utilizados muitos cabos, as conexões  ficavam mais frágeis e confusa
 Por esse motivo, foi sugerida a utilização de uma placa perfurada de fenolite, também conhecida como  placa padrão ilhada. Essa placa já possui furos para a fixação dos componentes e pode ser cortada e ajustada para caber melhor dentro do robô. Diferente de uma PCB típica, na placa ilhada as trilhas são feitas manualmente,  por meio de soldas e pequenos fios de ligação.
 
 Figura3 – Placa Padrão Ilhada.
-.. figure:: img/.png
+.. figure:: img/placa.png
    :width: 30%
    :align: center
 
@@ -62,6 +62,29 @@ Figura 5 – Conector fita utilizado.
 .. figure:: img/.png
    :width: 30%
    :align: center
+
+Além das melhorias feitas na parte de hardware, o software do robô também precisou passar por algumas correções. Uma das principais foi no cálculo da velocidade do carro, pois havia um erro na forma como a conta estava sendo feita em ponto fixo.
+
+
+O valor de `M_PER_COUNT`, que representa a conversão dos pulsos do encoder para deslocamento, já estava no formato Q6.25, ou seja, já estava multiplicado por (2^25). Porém, no código, esse deslocamento era multiplicado e depois sofria novamente um deslocamento de escala antes da divisão pelo tempo de amostragem. Na prática, isso fazia com que o resultado fosse para uma escala muito maior, equivalente a Q6.50.
+
+
+Por causa disso, a velocidade enviada ao controlador LQR não representava corretamente o movimento real do carro. Mesmo que o robô se movimentasse, o valor calculado da velocidade podia ficar distorcido, prejudicando a ação de controle. Para corrigir esse problema, a fórmula foi reorganizada de forma que os fatores de escala se cancelassem corretamente, mantendo o resultado final no formato Q6.25 e evitando overflow.
+
+
+Outra melhoria foi a inclusão do encoder 2 no cálculo da velocidade. Antes, apenas o encoder 1 era usado, enquanto o valor do encoder 2 era lido, mas descartado. Isso limitava a estimativa do movimento do robô, já que os dois motores, mesmo recebendo o mesmo sinal de PWM, não giram exatamente da mesma forma. Pequenas diferenças mecânicas, atrito, folgas e variações entre os motores fazem com que as rodas apresentem comportamentos um pouco diferentes.
+
+
+Por isso, passou-se a utilizar a média dos dois encoders. Isso fornece uma estimativa mais representativa da velocidade real do carro, reduzindo o impacto de pequenas diferenças entre os motores e tornando  melhor o sinal utilizado pelo controlador.
+
+
+Também foi ajustada a conversão da saída do controlador `u` para o valor de PWM aplicado aos motores. Antes, essa conversão era feita de forma mais arbitrária, sem uma relação direta com o comportamento físico do sistema. Isso fazia com que a força calculada pelo controlador não tivesse uma correspondência clara com o comando realmente enviado aos motores.
+
+
+A nova conversão passou a considerar o ganho estático do motor JGB37-520, em condição de carga. Esse ganho relaciona o duty cycle aplicado ao motor com a velocidade linear produzida na roda. Junto com a massa estimada do robô, essa relação permite aproximar melhor a saída do controlador das unidades físicas reais do sistema.
+
+
+Com essas correções, o software passou a representar melhor o comportamento do robô. A velocidade usada pelo LQR ficou mais coerente, a leitura dos encoders passou a considerar os dois motores e o PWM aplicado passou a ter uma relação mais próxima com a dinâmica real do sistema. 
 
 Testes
 ======
