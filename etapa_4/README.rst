@@ -31,6 +31,7 @@ Isso ficou mais claro ao testar outro motor, no qual foi possível observar o ac
    :width: 30%
    :align: center
 
+
  Figura 2 – Conexões Novas.
 .. figure:: img/conNova.png
    :width: 30%
