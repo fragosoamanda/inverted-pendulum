@@ -25,16 +25,20 @@ Para resolver isso, foram adicionados conectores na placa. Com essa alteração,
 Durante essa etapa também foi identificado outro problema relacionado aos encoders dos motores, que não estavam funcionando. Inicialmente, acreditava-se que o erro poderia estar no código, pois na primeira vez que testamos eles estavam funcionando. Porém, ao analisar a placa e comparar as conexões com o datasheet do fabricante, verificou-se que a pinagem indicada não correspondia ao comportamento real observado.
 
 Isso ficou mais claro ao testar outro motor, no qual foi possível observar o acionamento de uma luz indicativa que não acendia no motor instalado no robô. A partir disso, as conexões foram  alteradas. Após a correção da ligação dos pinos, os encoders passaram a funcionar, mostrando que o problema não estava no software, mas sim na conexão elétrica feita com base em uma pinagem incorreta.
+  
+Figura 1 – Conexões antigas.
 
- Figura 1 – Conexões antigas.
 .. figure:: img/conAntigas.png
-   :width: 30%
+  
+
+
+
+  Figura 2 – Conexões novas.
+.. figure:: img/conNova.png
+   :width: 65%
    :align: center
 
- Figura 2 – Conexões Novas.
-.. figure:: img/conNova.png
-   :width: 30%
-   :align: center
+
 
 Após a melhoria da placa já existente no robô, iria ser iniciada a confecção da nova PCB, considerando as modificações realizadas no KiCad a partir das orientações dos professores. Isso porque, durante os testes, percebeu-se que a montagem em protoboard estava dificultando bastante a organização do sistema.
 
@@ -43,9 +47,11 @@ Como eram utilizados muitos cabos, as conexões  ficavam mais frágeis e confusa
 Por esse motivo, foi sugerida a utilização de uma placa perfurada de fenolite, também conhecida como  placa padrão ilhada. Essa placa já possui furos para a fixação dos componentes e pode ser cortada e ajustada para caber melhor dentro do robô. Diferente de uma PCB típica, na placa ilhada as trilhas são feitas manualmente,  por meio de soldas e pequenos fios de ligação.
 
 Figura3 – Placa Padrão Ilhada.
+
 .. figure:: img/placa.png
-   :width: 30%
-   :align: center
+
+   
+
 
 Como o esquemático da placa já havia sido desenvolvido no KiCad, a montagem nessa placa foi feita seguindo as conexões já definidas anteriormente. Dessa forma, foi necessário apenas analisar o esquemático e reproduzir manualmente as ligações entre os componentes.
 
