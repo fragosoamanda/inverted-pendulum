@@ -1,0 +1,30 @@
+projeto/
+├── platformio.ini
+├── src/
+│   ├── main.c
+│   ├── main.h
+│   ├── init.c
+│   ├── init.h
+│   ├── ArduinoWrapper.cpp
+│   ├── ArduinoWrapper.h
+│   ├── I2Cdev.cpp
+│   ├── I2Cdev.hpp
+│   ├── helper_3dmath.hpp
+│   ├── MPU6050.h
+│   ├── MPU6050_6Axis_MotionApps20.h
+│   ├── USB_DEVICE/
+│   │   ├── usb_device.c
+│   │   ├── usb_device.h
+│   │   ├── usbd_cdc_if.c
+│   │   ├── usbd_cdc_if.h
+│   │   ├── usbd_desc.c
+│   │   ├── usbd_desc.h
+│   │   ├── usbd_conf.c
+│   │   └── usbd_conf.h
+│   ├── MPU6050/
+│   │   ├── MPU6050.cpp
+│   │   ├── MPU6050.h
+│   │   ├── helper_3dmath.hpp
+│   │   ├── MPU6050_6Axis_MotionApps_V6_12.h
+│   │   └── MPU6050_6Axis_MotionApps20.h
+└──

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"chat.agent.maxRequests": 0,
+		"chat.agent.enabled": false,
+		"chat.extensionTools.enabled": false,
+		"chat.tools.autoExpandFailures": false,
+		"chat.checkpoints.enabled": false
+	}
+}
