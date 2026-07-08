@@ -22,6 +22,8 @@ TIM_HandleTypeDef  htim4;   // Timer controle
 TIM_HandleTypeDef  htim5;   // Encoder motor 2
 TIM_HandleTypeDef  htim9;   // PWM motor 2
 
+TIM_HandleTypeDef  htim10;   // us counter
+
 // ════════════════════════════════════════════════════════
 //  SYSTEM CLOCK — 48 MHz (HSE 25MHz)
 // ════════════════════════════════════════════════════════
@@ -114,6 +116,12 @@ void MX_GPIO_Init(void)
     GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+	// ── PA4 — ADC1_CH4 (Leitura da bateria) ──────────────
+	GPIO_InitStruct.Pin       = GPIO_PIN_4;
+	GPIO_InitStruct.Mode      = GPIO_MODE_ANALOG;  // Modo analógico (essencial!)
+	GPIO_InitStruct.Pull      = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
     // ── PB4 / PB5 — IN1 / IN2 (direcao motor 1) ─────────
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4 | GPIO_PIN_5, GPIO_PIN_RESET);
     GPIO_InitStruct.Pin       = GPIO_PIN_4 | GPIO_PIN_5;
@@ -131,6 +139,7 @@ void MX_GPIO_Init(void)
     GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = 0;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
 }
 
 // ════════════════════════════════════════════════════════
@@ -236,7 +245,7 @@ void MX_TIM2_Init(void)
     htim2.Instance               = TIM2;
     htim2.Init.Prescaler         = 0;
     htim2.Init.CounterMode       = TIM_COUNTERMODE_UP;
-    htim2.Init.Period            = 999;
+    htim2.Init.Period            = 999;					//aumentei em 2x a frequencia para ver se diminuia a ondulação no motor
     htim2.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
     htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
     if (HAL_TIM_PWM_Init(&htim2) != HAL_OK) Error_Handler();
@@ -309,7 +318,7 @@ void MX_TIM9_Init(void)
     htim9.Instance               = TIM9;
     htim9.Init.Prescaler         = 0;
     htim9.Init.CounterMode       = TIM_COUNTERMODE_UP;
-    htim9.Init.Period            = 999;
+    htim9.Init.Period            = 999;					//aumentei em 2x a frequencia para ver se diminuia a ondulação no motor
     htim9.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
     htim9.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
     if (HAL_TIM_PWM_Init(&htim9) != HAL_OK) Error_Handler();
@@ -353,14 +362,15 @@ void MX_TIM5_Init(void)
     sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
     sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
     sConfig.IC1Filter    = 5;
-    sConfig.IC2Polarity  = TIM_ICPOLARITY_RISING;
+    sConfig.IC2Polarity  = TIM_ICPOLARITY_FALLING;
     sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
     sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
     sConfig.IC2Filter    = 5;
 
     if (HAL_TIM_Encoder_Init(&htim5, &sConfig) != HAL_OK) Error_Handler();
 
-    __HAL_TIM_SET_COUNTER(&htim5, 0x7FFFFFFF);
+// HAL_TIM_Encoder_Start(&htim5, TIM_CHANNEL_ALL);
+//     __HAL_TIM_SET_COUNTER(&htim5, 0x7FFFFFFF);
 }
 
 // ════════════════════════════════════════════════════════
@@ -383,4 +393,27 @@ void MX_TIM4_Init(void)
 
     HAL_NVIC_SetPriority(TIM4_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(TIM4_IRQn);
+}
+
+/// ════════════════════════════════════════════════════════
+//  TIM10 — Timer de precisão para RPM do Motor 1 (1µs)
+//  Clock TIM10 = APB2 (geralmente 84MHz)
+//  Prescaler = 83 -> 84MHz / 84 = 1MHz -> 1µs
+//  Period = 0xFFFF (16 bits, estoura em 65.5ms)
+// ════════════════════════════════════════════════════════
+void MX_TIM10_Init(void)
+{
+    __HAL_RCC_TIM10_CLK_ENABLE();
+
+    htim10.Instance               = TIM10;
+    htim10.Init.Prescaler         = 47;          // Ajuste para 1µs (se APB2=84MHz)
+    htim10.Init.CounterMode       = TIM_COUNTERMODE_UP;
+    htim10.Init.Period            = 0xFFFF;
+    htim10.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
+    htim10.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+
+    if (HAL_TIM_Base_Init(&htim10) != HAL_OK) Error_Handler();
+
+    // NÃO habilita interrupção! Apenas leitura do contador.
+    HAL_TIM_Base_Start(&htim10);
 }

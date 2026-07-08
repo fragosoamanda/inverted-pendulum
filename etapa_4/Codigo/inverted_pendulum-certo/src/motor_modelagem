@@ -1,0 +1,33 @@
+Obter um modelo aproximado do motor
+
+O motor DC com carga (roda + pêndulo) pode ser modelado como um sistema de 1ª ordem:
+G(s)=Kτs+1
+G(s)=τs+1K​
+
+onde:
+
+    KK = ganho estático (RPM / PWM)
+
+    ττ = constante de tempo (segundos)
+
+se fez um degrau de 0 1000PWM com o intuito de saber o maximo do sistema e então decidir qual seria o comportamente desejado e assim se calculou o PI para o atingir
+		o objetivo foi atingir 40RPM em 50ms
+
+
+
+
+3. Melhorar a sintonia atual com feedforward de bateria
+
+Enquanto não tem um modelo exato, pode reduzir o erro estacionário e acelerar a resposta com uma compensação feedforward simples:
+
+    Mapeie a relação PWM × RPM para várias tensões de bateria (ou apenas para a tensão atual).
+
+    Use uma função que, dado o RPM desejado, calcule o PWM base esperado (ex: PWM_ff = RPM_target * K_ff).
+
+    Some esse PWM ao saída do PI (ou use o PI apenas para corrigir o erro).
+
+Isto reduz o trabalho do integrador e acelera a resposta.
+
+Exemplo rápido (para já, sem considerar a bateria):
+
+Se quiser um desempenho ainda mais rápido, pode adicionar um feedforward adaptativo baseado na tensão da bateria (que já está a medir). Isso permitirá reduzir o trabalho do integral, mas não é essencial nesta fase.

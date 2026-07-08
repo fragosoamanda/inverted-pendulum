@@ -21,6 +21,8 @@ extern TIM_HandleTypeDef  htim4;   // Timer controle (interrupcao 5ms)
 extern TIM_HandleTypeDef  htim5;   // Encoder motor 2 (PA0=TIM5_CH1, PA1=TIM5_CH2)
 extern TIM_HandleTypeDef  htim9;   // PWM motor 2 (PA2 = TIM9_CH1)
 
+extern TIM_HandleTypeDef  htim10;   // us counter
+
 // ─── FUNCOES DE INICIALIZACAO ───────────────────────────
 void SystemClock_Config(void);
 void MX_GPIO_Init(void);
@@ -33,7 +35,7 @@ void MX_TIM3_Init(void);
 void MX_TIM4_Init(void);
 void MX_TIM5_Init(void);
 void MX_TIM9_Init(void);
-
+void MX_TIM10_Init(void);
 #ifdef __cplusplus
 }
 #endif

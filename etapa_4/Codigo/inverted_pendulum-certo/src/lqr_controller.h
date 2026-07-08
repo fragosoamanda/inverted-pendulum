@@ -7,57 +7,114 @@
 #define LQR_CONTROLLER_H
 
 #include "main.h"
+#include "aux.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-// coisas a serem feitas, parar de usar float, usar ponto fixo
-/*
-Q16.15 num int32:
-bit 31         bit 16  bit 15         bit 0
-[sinal | inteira 16 bits] . [fração 15 bits]
 
-Q6.25 num int32:
-bit 31         bit 6  bit 15         bit 0
-[sinal | inteira 6 bits] . [fração 25 bits]
-*/
+extern TIM_HandleTypeDef htim2;   // PWM motor 1
+extern TIM_HandleTypeDef htim3;   // Encoder motor 1
+extern TIM_HandleTypeDef htim5;   // Encoder motor 2
+extern TIM_HandleTypeDef htim9;   // PWM motor 2
+extern I2C_HandleTypeDef hi2c1;   // MPU6050
+extern TIM_HandleTypeDef htim4;
 
-// ─── Q6.25 — sinais (theta, vel, pos) ──────────────────
-typedef int32_t q6_t;
-#define Q6_SCALE    (1L << 25)                           // 33554432
-#define Q6(x)       ((q6_t)((x) * Q6_SCALE))            // literal → Q6.25
-#define Q6_MUL(a,b) ((q6_t)(((int64_t)(a) * (b)) >> 25))// produto → Q6.25
-#define Q6_DIV(a,b) ((q6_t)(((int64_t)(a) << 25) / (b)))// divisão → Q6.25
-#define Q6_TO_F(x)  ((float)(x) / Q6_SCALE)             // só debug
-#define Q6_TO_INT(x)((x) >> 25)                         // parte inteira
+extern TIM_HandleTypeDef htim10;		// RPM
 
-// ─── Q16.16 — ganhos (K1..K4) ──────────────────────────
-typedef int32_t q16_t;
-#define Q16_SCALE    (1L << 16)                            // 65536
-#define Q16(x)       ((q16_t)((x) * Q16_SCALE))           // literal → Q16.16
-#define Q16_MUL(a,b) ((q16_t)(((int64_t)(a) * (b)) >> 16))// produto → Q16.16
-#define Q16_DIV(a,b) ((q16_t)(((int64_t)(a) << 16) / (b)))// divisão → Q16.16
-#define Q16_TO_F(x)  ((float)(x) / Q16_SCALE)             // só debug
-#define Q16_TO_INT(x)((x) >> 16)                          // parte inteira
 
-// ─── multiplicação cruzada ganho × sinal → Q6.25 ───────
-#define Q6_MUL_KS(k, s) ((q6_t)(((int64_t)(k) * (s)) >> 16))
-#define Q16_MUL_KS(k, s) ((q6_t)(((int64_t)(k) * (s)) >> 25))
+// #define ENCODER_CPR         1320
+// #define WHEEL_DIAM_M        Q25(0.0654)
+// #define WHEEL_CIRCUM_M      Q25(0.20548)
+// #define M_PER_COUNT         Q25(0.00015567)
+
+
+#define TS                  Q25(0.005)
+#define THETA_MAX           Q25(0.5236)         // 30 graus em rad
+#define FORCA_MAX           Q16(2.5)
+#define PWM_PERIOD          999
+
+
+#define THETA_OFFSET_DEG    0.0f
+#define THETA_OFFSET_RAD    (THETA_OFFSET_DEG * 3.14159f / 180.0f)
+#define THETA_OFFSET        Q25(THETA_OFFSET_RAD)
+
+
+#define PWM_DEADBAND_RAW    2
+#define PWM_MIN             0
+#define PWM_BALANCE_MIN     130
+
+
+#define ALPHA            Q25(0.88)
+#define ONE_MINUS_ALPHA  Q25(0.12)
+#define RAD_PER_DEG      Q25(0.017453)
+
+
+#define MPU_ADDR            (0x69 << 1)
+#define MPU_PWR_MGMT_1      0x6B
+#define MPU_GYRO_CONFIG     0x1B
+#define MPU_ACCEL_CONFIG    0x1C
+#define MPU_ACCEL_XOUT      0x3B
+#define MPU_GYRO_XOUT       0x43
+#define GYRO_SENS           131.0f
+#define ACCEL_SENS          16384.0f
+
+
+
 // ─── MODO DE OPERACAO ───────────────────────────────────
+
+const q16_t K1 = Q16(-3.0061); // posicao do carro
+const q16_t K2 = Q16(-4.9994); // velocidade do carro
+const q16_t K3 = Q16( 50.9704);    // angulo
+const q16_t K4 = Q16( 8.0437);     // vel. angular
+
+typedef struct {
+    q31_t  pos;
+    q31_t  vel;
+    q31_t  theta;
+    q31_t  theta_dot;
+    q31_t  theta_dot_raw;
+
+    uint16_t enc1_prev;
+    int32_t  enc2_prev;
+
+    q16_t gyro_offset;
+
+    q16_t  u;
+    int16_t pwm;
+    uint8_t ativo;
+
+    uint32_t loop_count;
+} LQR_State;
+
+
 // Comente DEBUG_MODE para ativar o motor
 // Deixe definido para testar sem ligar o driver
 //#define DEBUG_MODE
 
-// ─── FUNCOES PUBLICAS ───────────────────────────────────
 void lqr_init(void);
 void lqr_loop(void);   // chamada pela interrupcao do TIM4
 
+
+
+void    mpu_init(void);
+void    mpu_calibrate(void);
+void    mpu_read(q16_t *ax, q16_t *ay, q16_t *az, q16_t *gx, q16_t *gy, q16_t *gz);
+void    encoder_update(void);
+void    filtro_complementar(q16_t ax, q16_t ay, q16_t az, q16_t gy_dps);
+void    controle_lqr(void);
+void    motor1_set(int16_t pwm);
+void    motor1_parar(void);
+void    motor2_set(int16_t pwm);
+void    motor2_parar(void);
+void    debug_print(void);
+
 // Estados acessiveis externamente (para debug)
-q6_t lqr_get_theta(void);
-q6_t lqr_get_theta_dot(void);
-q6_t lqr_get_pos(void);
-q6_t lqr_get_vel(void);
-q16_t lqr_get_u(void);
+// q6_t lqr_get_theta(void);
+// q6_t lqr_get_theta_dot(void);
+// q6_t lqr_get_pos(void);
+// q6_t lqr_get_vel(void);
+// q16_t lqr_get_u(void);
 
 #ifdef __cplusplus
 }

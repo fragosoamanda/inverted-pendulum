@@ -216,6 +216,7 @@ void OTG_FS_IRQHandler(void)
 
   /* USER CODE END OTG_FS_IRQn 1 */
 }
+
  /**
   * @brief This function handles TIM4 global interrupt (controle LQR 5ms).
   */
@@ -224,15 +225,8 @@ void TIM4_IRQHandler(void)
     HAL_TIM_IRQHandler(&htim4);
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-    if (htim->Instance == TIM4) {
-        lqr_loop();
-    }
-}
 
 
- 
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
