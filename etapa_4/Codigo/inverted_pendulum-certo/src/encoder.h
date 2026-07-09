@@ -44,4 +44,12 @@ void encoder_process_window(void);   // chamar a cada 100 ms
 int32_t encoder_rpm_to_mm_s(int32_t rpm_scaled);
 
 int32_t encoder_get_sliding_rpm(uint8_t motor);
+
+void motor1_set(int16_t pwm);
+void motor2_set(int16_t pwm);
+void motor1_parar();
+void motor2_parar();
+
+
+
 #endif

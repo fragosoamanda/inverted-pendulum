@@ -2,15 +2,15 @@
 #include "stm32f4xx_hal.h"   // ajuste conforme sua MCU
 
 // Referências aos timers já configurados (extern)
-extern TIM_HandleTypeDef htim3;
-extern TIM_HandleTypeDef htim5;
+extern TIM_HandleTypeDef htim2;   // PWM motor 1
+extern TIM_HandleTypeDef htim3;   // Encoder motor 1
+extern TIM_HandleTypeDef htim5;   // Encoder motor 2
+extern TIM_HandleTypeDef htim9;   // PWM motor 2
 extern TIM_HandleTypeDef htim10;
-
-
 /* ---------------- Variáveis globais ---------------- */
 encoder_state_t enc_m1;
 encoder_state_t enc_m2;
-// No módulo encoder, adicione variáveis estáticas para as somas correntes
+// No módulo encoder, adicione variáveis estáticas para as somas
 static uint64_t sum_dt_m1 = 0;
 static uint64_t sum_vdt_m1 = 0;
 
@@ -164,4 +164,49 @@ int32_t encoder_get_sliding_rpm(uint8_t motor)
     }
     int32_t rpm_signed = (sum_rpm >= 0) ? rpm_mag : -rpm_mag;
     return rpm_signed;
+}
+
+void motor1_set(int16_t pwm)
+{
+    if (pwm >= 0) {
+        // Sentido positivo
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim9, TIM_CHANNEL_1, (uint32_t)pwm);
+    } else {
+        // Sentido negativo
+        int16_t abs_pwm = -pwm;
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
+        __HAL_TIM_SET_COMPARE(&htim9, TIM_CHANNEL_1, (uint32_t)abs_pwm);
+    }
+}
+
+void motor2_set(int16_t pwm)
+{
+    if (pwm >= 0) {
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, (uint32_t)pwm);
+    } else {
+        int16_t abs_pwm = -pwm;
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, (uint32_t)abs_pwm);
+    }
+}
+
+void motor2_parar(void)
+{
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
+    __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+}
+
+
+void motor1_parar(void)
+{
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
+    __HAL_TIM_SET_COMPARE(&htim9, TIM_CHANNEL_1, 0);
 }

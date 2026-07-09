@@ -9,22 +9,24 @@
 #include "ArduinoWrapper.h"
 #include "lqr_controller.h"
 #include "encoder.h"
-#include "MPU6050/MPU6050_6Axis_MotionApps_V6_12.h"
 #include "speed_controller.h"
-
-//A0   A1
+#include "mpu_data.h"
+#include "debug_print.h"
+#include "MPU6050/MPU6050.h"
 /**
 Arrumar o Q31 e para fazer todas as contas no controle com ponto fixo e normalizado X
 pegar os dados do enconder, converter em velocidade X, arrumado de novo 			X
 usar apenas um timer para os 2 pwm		- falhei duas vezes
-inicializar o ADC, ler a bateria00		falta conecção , codigo feito 			x
+inicializar o ADC, ler a bateria00		falta conecção , codigo feito mas não será mais usado			x
 inicializar o timestamp 				contador de loops mais timestamp HAL_GetTick X
 
 buffer circular 10 amostras de cada grandeza									X
 filtrar o RPM para ter o valor medio,mas  com precisão em vez de a cada 100ms  X
 relacionar a tensão com a velocidade e assim poder melhorar o controle				- conflito entre o adc e o encoder 2, e com o controle não é ncesario
 decidir qual é o melhor jeito de ter as variaveis do DMP, Quaternion ou angulos ou outro	X
-inicializar o dmp e a cada 5ms pegar os dados e colocar num buffer circular
+inicializar o dmp e a cada 5ms pegar os dados e colocar num buffer circular -----
+O dmp deu errado, por algum motivo os valores deram muito distantes do que era para ser, com seus angulos saturando com muito pouco movimento e muita inercia nos dados
+usar o mpu e os dados que a biblioteca fornce em vez do dmp
 organizar e comentar o codigo			-( parei de poluir o main ao menos)
 O sinal do pwm parece errado de novo (do print)...		X
 o controle não funcina para rpm negativo				X
@@ -32,6 +34,12 @@ A um problema no RPM que não será resolvido, a forma escolhida de calcular foi
 
 começar a parte de controle					X
 criar o bloco do controle do motor, que ira fornecer o PWM necesario para o RPM ser atingido (setpoint de velocidade)	X e testado
+Se parou de usar o dmp apos perceber que os dados estavam muito inconcisitentes (mudanças leves  provocavam alterações drasticas nos valores), e que a resposta tinha algum tipo de inercia estranha
+o mpu foi usado com a biblioteca como antes, agora o testando mais profundamente e checando a viabilidade de usar cada angulo no controle, inicalmente os dados era bem instaveis e se percebeu que a derivação do yaw era muito maior que a esperada
+então o foco foi a calibração do sensor, que por equanto deve ser feita manualmente e colocada no codigo, com ela se permitiu ter angulos mais estaveis e um yaw que derivasse o apenas alguns graus por minuto, permitindo testar se é viavel futuramente juntar rpm e yaw para dar direção ao pendulo
+com o pendulo na horizontal, o angulo fica perto de 70°, uma diferença grande, mas que se espera não impactar no controle
+
+
 LQR, o bloco que ira  forncer o RPM necesario para manter o angulo desejado (setpoint de angulo)
 
  */
@@ -50,9 +58,11 @@ LQR, o bloco que ira  forncer o RPM necesario para manter o angulo desejado (set
 #define KP_2 30
 #define KI_2 270
 #define KD_2 0
+LQR_State lqr;
 speed_controller_t motor1;
 speed_controller_t motor2;
 
+extern MPU6050 mpu;
 RingBuffer<int32_t, 20> rpm_m1;   // 20 amostras, int32_t
 RingBuffer<int32_t, 20> pwm_m1;   // 20 amostras, int32_t
 
@@ -83,78 +93,12 @@ uint32_t read_battery_mV(void){
 //     // 5. Aplica o fator do divisor resistivo (ex: 4x)
 //     uint32_t battery_mV = pin_mV;
 
-//     return battery_mV;
+    return 11100;
 }
 
 uint32_t bat;
 uint32_t timestamp = 0;
 uint32_t cycle_counter = 0;
-int32_t setpoint_rpm= 0;
-
-
-/**
- * Imprime uma linha com os dados dos dois motores.
- *
- * @param setpoint_rpm   alvo de RPM (×1000)
- * @param rpm1           RPM atual do motor 1 (×1000)
- * @param pwm1           PWM do motor 1 (-1000 … 1000)
- * @param rpm2           RPM atual do motor 2 (×1000)
- * @param pwm2           PWM do motor 2 (-1000 … 1000)
- */
-void print_status_PWM(int32_t setpoint_rpm,
-                      int32_t rpm1, int32_t pwm1,
-                      int32_t rpm2, int32_t pwm2)
-{
-    char buf[160]; // um pouco maior para caber tudo
-
-    // ── Setpoint ──
-    int32_t  tgt_int  = setpoint_rpm / 1000;
-    uint32_t tgt_frac = (uint32_t)abs(setpoint_rpm % 1000);
-
-    // ── Motor 1 ──
-    int32_t  rpm1_int  = rpm1 / 1000;
-    uint32_t rpm1_frac = (uint32_t)abs(rpm1 % 1000);
-    int32_t  pwm1_int  = pwm1;
-
-    // ── Motor 2 ──
-    int32_t  rpm2_int  = rpm2 / 1000;
-    uint32_t rpm2_frac = (uint32_t)abs(rpm2 % 1000);
-    int32_t  pwm2_int  = pwm2;
-
-    snprintf(buf, sizeof(buf),
-             "[%8lu] Cyc:%7lu | Target:%+4d.%03u RPM | "
-             "M1:%+4d.%03u RPM PWM:%+4d | "
-             "M2:%+4d.%03u RPM PWM:%+4d\r\n",
-             timestamp, cycle_counter,
-             (int)tgt_int, (unsigned int)tgt_frac,
-             (int)rpm1_int, (unsigned int)rpm1_frac, (int)pwm1_int,
-             (int)rpm2_int, (unsigned int)rpm2_frac, (int)pwm2_int);
-
-    CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
-}
-void print_status_RPM(void) {
-    char buf[200];
-
-    int32_t rpm1_inst = enc_m1.rpm_instant;
-    int32_t rpm1_filt = enc_m1.rpm_filtered;
-    int32_t rpm1_slid = encoder_get_sliding_rpm(0);
-
-    int32_t rpm2_inst = enc_m2.rpm_instant;
-    int32_t rpm2_filt = enc_m2.rpm_filtered;
-    int32_t rpm2_slid = encoder_get_sliding_rpm(1);
-
-    snprintf(buf, sizeof(buf),
-             "[%8lu] Cyc:%7lu "
-             "M1:%+4d.%03u S%+4d.%03u  "
-             "M2:%+4d.%03u S%+4d.%03u\r\n",
-             timestamp, cycle_counter,
-             (int)(rpm1_inst / 1000), (unsigned int)(abs(rpm1_inst % 1000)),
-             (int)(rpm1_slid / 1000), (unsigned int)(abs(rpm1_slid % 1000)),
-             (int)(rpm2_inst / 1000), (unsigned int)(abs(rpm2_inst % 1000)),
-             (int)(rpm2_slid / 1000), (unsigned int)(abs(rpm2_slid % 1000))
-    );
-    CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
-}
 
 template<uint8_t N>
 void print_rpm_buffer(const RingBuffer<int32_t, N> &buf, const char *label) {
@@ -178,73 +122,14 @@ void print_rpm_buffer(const RingBuffer<int32_t, N> &buf, const char *label) {
     CDC_Transmit_FS((uint8_t*)line, (size_t)pos);
 }
 
-MPU6050 mpu(0x69);
-
-uint8_t	 devStatus = 0;
-uint16_t packetSize;
-uint8_t	 fifoBuffer[64];
-Quaternion	q;
-VectorFloat gravity;
-q31_t ypr[3];
-
-
-typedef union {
-	struct {
-		bool		encoder_update				: 1;
-		bool		control_loop				: 1;
-		bool		dmpReady					: 1;
-		bool		dmp_recive					: 1;
-		uint8_t		unusedFlags					: 6;
-	};
-	uint8_t allFlags;
-} systemFlags_t;
 volatile systemFlags_t systemFlags;
-
-static void dmp_init(void)
-{
-	print("[DMP] Testando conexao MPU6050...\r\n");
-	mpu.initialize();
-
-	while (!mpu.testConnection()) {
-		HAL_I2C_MspDeInit(&hi2c1);
-		__HAL_RCC_GPIOB_CLK_DISABLE();
-		HAL_Delay(250);
-		HAL_I2C_MspInit(&hi2c1);
-		HAL_Delay(250);
-		print("\r\n falha de comunicacao");
-	}
-	print("\r\n[DMP] MPU6050 conectado!\r\n");
-
-	mpu.setXGyroOffset(30);
-	mpu.setYGyroOffset(58);
-	mpu.setZGyroOffset(21);
-	mpu.setXAccelOffset(0);
-	mpu.setYAccelOffset(0);
-	mpu.setZAccelOffset(0);
-
-	print("[DMP] Inicializando DMP...\r\n");
-	devStatus = mpu.dmpInitialize();
-
-	if (devStatus == 0) {
-		mpu.CalibrateAccel(6);
-		mpu.CalibrateGyro(6);
-		mpu.PrintActiveOffsets();
-		mpu.setDMPEnabled(true);
-		systemFlags.dmpReady   = true;
-		packetSize = mpu.dmpGetFIFOPacketSize();
-		print("[DMP] DMP pronto!\r\n");
-	} else {
-		print("[DMP] ERRO ao inicializar DMP (code %d)\r\n", devStatus);
-	}
-}
-
 
 int main(void)
 {
 	HAL_Init();
 	SystemClock_Config();
 
-	MX_GPIO_Init();		  // 2. GPIO (restaura PA0/PA1 como AF TIM5 e PA2 como AF TIM9)??
+	MX_GPIO_Init();		  // 2. GPIO
 
 	MX_I2C1_Init();
 	MX_USART1_UART_Init();
@@ -252,18 +137,27 @@ int main(void)
 	MX_TIM2_Init();		  // PWM motor 1 E 2  (PB3) (PA2)
 	MX_TIM3_Init();		  // Encoder 1	  (PA6, PA7)
 	MX_TIM4_Init();		  // Timer controle 5ms
-	MX_TIM5_Init();		  // Encoder 2	  (PA0, PA1)  — PA0 ja esta como AF_PP aqui
+	MX_TIM5_Init();		  // Encoder 2	  (PA0, PA1)
 	MX_TIM9_Init();		  // PWM motor 2
 
-	MX_TIM10_Init();		//para medir o tempo entre os pulsos para o RPM dos dois encoders
-
+	MX_TIM10_Init();		//para medir o tempo entre os pulsos dos dois encoders
 	// MX_ADC1_Init();
+
 	HAL_Delay(20);
+	systemFlags.calibrate= 0;
+	mpu_init();
+	print_gyro_offsets();
+    __HAL_TIM_SET_COUNTER(&htim3, 0);
+    __HAL_TIM_SET_COUNTER(&htim5, 0);
 
-	// Depois de HAL_TIM_Base_Init(&htim4)
-	dmp_init();
+    HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+    HAL_TIM_Encoder_Start(&htim5, TIM_CHANNEL_ALL);
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+    HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
+    HAL_TIM_Base_Start_IT(&htim4);
 
-	HAL_Delay(100);
+
+
 
 	print("\r\n==========================================\r\n");
 	print("  PENDULO INVERTIDO — CONTROLE LQR\r\n");
@@ -281,7 +175,7 @@ int main(void)
 						KD_2,
 						-1000, 1000, 5);
     // encoder_init();
-	lqr_init();
+	lqr_init(&lqr);
 
 
 
@@ -297,75 +191,62 @@ int main(void)
 	uint32_t cycle_encoder=0;
 	while (1)
 	{
-
-		// if (systemFlags.dmpReady && mpu.dmpGetCurrentFIFOPacket(fifoBuffer)) {
-		//	mpu.dmpGetQuaternion(&q, fifoBuffer);
-		//	mpu.dmpGetGravity(&gravity, &q);
-		//	mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-
-		//	char buf[128];
-		//	snprintf(buf, sizeof(buf),
-		//		"[MAIN] DMP ypr: %.2f / %.2f / %.2f deg"
-		//		" | LQR th=%.2f deg u=%.3f N\r\n",
-		//		ypr[0] * 180.0f / 3.14159f,
-		//		ypr[1] * 180.0f / 3.14159f,
-		//		ypr[2] * 180.0f / 3.14159f,
-		//		lqr_get_theta() * 180.0f / 3.14159f,
-		//		lqr_get_u()
-		//	);
-		//	CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
-		// }
-
-		// if (systemFlags.dmp_recive) {
-		//	mpu.dmpGetQuaternion(&q, fifoBuffer);
-		//	mpu.dmpGetGravity(&gravity, &q);
-		//	mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-		// }
-
-		// motor1_set(10); // cade o minimo????
-		// motor2_set(50); //200
-
-		// motor1_set(900);
-		// motor2_set(1000);
-
 		// motor1_set(500);
 		// motor2_set(500);
 
 		// uint16_t cont = __HAL_TIM_GET_COUNTER(&htim5);
 		// print("%u\n\r",cont);
         encoder_process_fast(); //conta o tempo entre pulso, execulta sempre que der
-		if (systemFlags.encoder_update) {
-			systemFlags.encoder_update=0;
+		if (systemFlags.control_loop) {
+			systemFlags.control_loop=0;
 
 			if ((cycle_counter-cycle_encoder)>=20) {
 				cycle_encoder=cycle_counter;
 				encoder_process_window();			 // a cada 100 ms, da a media lenta, mas confiavel dos valores
 			}
 			cycle_counter++;
+			lqr.loop_count=cycle_counter;
 			timestamp = HAL_GetTick();
 
 			rpm_m1.push(encoder_get_sliding_rpm(0));
 			rpm_m2.push(encoder_get_sliding_rpm(1));
+			lqr.rpm_m1 = rpm_m1[0];
+			lqr.rpm_m2 = rpm_m1[0];
+			mpu_update();
+			// Leitura bruta do acelerómetro para comparar com o mpu
+
 			// bat = read_battery_mV();
 			// print_status_RPM();
 			// print_rpm_buffer(rpm_m1, "RPM M1");
-		}
 
-		if (systemFlags.control_loop) {
-			systemFlags.control_loop = 0;
-			// lqr_loop();
+
+			// print_status_mpu();
+
+			// ──────────────────────────────────────────────
+			// 3. Estimação dos estados do pêndulo
+			encoder_data_update(&lqr);                        // pos e vel
+			filtro_complementar(&lqr, mpu_pitch, mpu_gyro_y);         // theta e theta_dot
+			// ──────────────────────────────────────────────
+			// 4. Controlo LQR → calcula target_rpm
+			controle_lqr(&lqr);
+
+			// ──────────────────────────────────────────────
+			// 5. Controlo PI de velocidade (motor a motor)
+
+
 
 			// Leitura do RPM (média deslizante)
 			// int32_t rpm_now = rpm_m1[0];
 			// Setpoint para teste – mais tarde virá do LQR
-			int32_t rpm_target = 25000;   // 30.000 → 30 RPM
+			// int32_t rpm_target = 25000;   // 30.000 → 30 RPM
 
-			// Calcula o PWM
-			int32_t pwm1 = speed_controller_update(&motor1, rpm_target, rpm_m1[0],rpm_m1[1]);
-			int32_t pwm2 = speed_controller_update(&motor2, rpm_target, rpm_m2[0],rpm_m2[1]);
+			// Calcula o PWM (futuramente adiconar um outro controle aqui para o anglo yaw, assim permitir curvas, melhorar o qão reto o pendulo anda)
+			int32_t pwm1 = speed_controller_update(&motor1, lqr.target_rpm, rpm_m1[0],rpm_m1[1]);
+			int32_t pwm2 = speed_controller_update(&motor2, lqr.target_rpm, rpm_m2[0],rpm_m2[1]);
 
 			// int32_t pwm1 = 400;
 			// int32_t pwm2 = 400;
+			lqr.pwm = pwm1;   // guarda um dos PWMs para debug
 			pwm_m1.push(pwm1);
 			pwm_m2.push(pwm2);
 
@@ -374,7 +255,8 @@ int main(void)
 			motor2_set(pwm2);
 
 			// Debug
-			print_status_PWM(rpm_target, rpm_m1[0],pwm1,rpm_m2[0],pwm2);
+				debug_print_lqr(&lqr);
+			// print_status_PWM(rpm_target, rpm_m1[0],pwm1,rpm_m2[0],pwm2);
 		}
 		if (systemFlags.control_loop) {
 			// lqr_loop();

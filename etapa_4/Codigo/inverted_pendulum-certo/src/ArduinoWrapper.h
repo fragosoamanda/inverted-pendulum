@@ -28,7 +28,7 @@
 #define delay(x) HAL_Delay(x)
 
 
-extern UART_HandleTypeDef huart1;
+// extern UART_HandleTypeDef huart1;
 float mapArduino(float val, float I_Min, float I_Max, float O_Min, float O_Max);
 
 #ifdef __cplusplus

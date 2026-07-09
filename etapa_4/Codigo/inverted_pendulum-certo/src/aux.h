@@ -1,28 +1,7 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __AUX_H
 #define __AUX_H
 
-
+#include <stdbool.h>
 /*
 Q16.15 num int32:
 bit 31         bit 16  bit 15         bit 0
@@ -50,9 +29,9 @@ typedef int32_t q25_t;
 typedef int32_t q31_t;
 
 #define Q31_SCALE    (1UL << 31)                     		// 2³¹
-#define Q31(x)       ((Q31_t)((x) * Q31_SCALE))       			// literal → Q16.16
-#define Q31_MUL(a,b) ((Q31_t)(((int64_t)(a) * (b)) >> 31))
-#define Q31_DIV(a,b) ((Q31_t)(((int64_t)(a) << 31) / (b)))	// b != 0
+#define Q31(x)       ((q31_t)((x) * Q31_SCALE))       			// literal → Q16.16
+#define Q31_MUL(a,b) ((q31_t)(((int64_t)(a) * (b)) >> 31))
+#define Q31_DIV(a,b) ((q31_t)(((int64_t)(a) << 31) / (b)))	// b != 0
 #define Q31_TO_F(x)  ((float)(x) / Q31_SCALE)
 #define Q31_TO_INT(x)((x) >> 31)                 			// inteiro (0 ou -1)
 
@@ -73,5 +52,18 @@ typedef int32_t q16_t;
 #define Q31_MUL_KS(k, s) ((Q31_t)(((int64_t)(k) * (s)) >> 1))
 #define Q25_MUL_KS(k, s) ((Q25_t)(((int64_t)(k) * (s)) >> 25))
 #define Q16_MUL_KS(k, s) ((q16_t)(((int64_t)(k) * (s)) >> 16))
+
+typedef union {
+	struct {
+		bool		encoder_update				: 1;
+		bool		control_loop				: 1;
+		bool		mpuReady					: 1;
+		bool		mpu_recive					: 1;
+		bool		calibrate					: 1;
+		uint8_t		unusedFlags					: 3;
+	};
+	uint8_t allFlags;
+} systemFlags_t;
+extern volatile systemFlags_t systemFlags;
 
 #endif /* __MAIN_H */

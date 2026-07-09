@@ -39,6 +39,7 @@ THE SOFTWARE.
 
 #include "./I2Cdev.hpp"
 #include "helper_3dmath.hpp"
+#include "init.h"
 
 // supporting link:  http://forum.arduino.cc/index.php?&topic=143444.msg1079517#msg1079517
 // also: http://forum.arduino.cc/index.php?&topic=141571.msg1062899#msg1062899s
@@ -50,7 +51,7 @@ THE SOFTWARE.
 #define pgm_read_byte(x) (*(x))
 #define pgm_read_word(x) (*(x))
 #define pgm_read_float(x) (*(x))
-#define PSTR(STR) STR
+// #define PSTR(STR) STR
 //#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 //#define pgm_read_word(addr) (*(const unsigned short *)(addr))
 //#define pgm_read_dword(addr) (*(const unsigned long *)(addr))
