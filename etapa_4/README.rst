@@ -99,7 +99,7 @@ Por fim, também foi iniciada uma reorganização geral do código. Embora nem t
 
  Figura 5 – Diagrama de Blocos Geral.
 
- .. figure:: img/diagramablocos.png
+.. figure:: img/diagramablocos.png
    :width: 65%
    :align: center
 
