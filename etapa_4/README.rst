@@ -26,18 +26,20 @@ Durante essa etapa também foi identificado outro problema relacionado aos encod
 
 Isso ficou mais claro ao testar outro motor, no qual foi possível observar o acionamento de uma luz indicativa que não acendia no motor instalado no robô. A partir disso, as conexões foram  alteradas. Após a correção da ligação dos pinos, os encoders passaram a funcionar, mostrando que o problema não estava no software, mas sim na conexão elétrica feita com base em uma pinagem incorreta.
   
-Figura 1 – Conexões antigas.
-
 .. figure:: img/conAntigas.png
-  
-
-
-
-  Figura 2 – Conexões novas.
-.. figure:: img/conNova.png
-   :width: 65%
+   :width: 35%
    :align: center
+   :alt: Conexões antigas
 
+   Figura 1 – Conexões antigas.
+
+
+.. figure:: img/conNova.png
+   :width: 35%
+   :align: center
+   :alt: Conexões novas
+
+   Figura 2 – Conexões novas.
 
 
 Após a melhoria da placa já existente no robô, iria ser iniciada a confecção da nova PCB, considerando as modificações realizadas no KiCad a partir das orientações dos professores. Isso porque, durante os testes, percebeu-se que a montagem em protoboard estava dificultando bastante a organização do sistema.
@@ -46,10 +48,12 @@ Como eram utilizados muitos cabos, as conexões  ficavam mais frágeis e confusa
 
 Por esse motivo, foi sugerida a utilização de uma placa perfurada de fenolite, também conhecida como  placa padrão ilhada. Essa placa já possui furos para a fixação dos componentes e pode ser cortada e ajustada para caber melhor dentro do robô. Diferente de uma PCB típica, na placa ilhada as trilhas são feitas manualmente,  por meio de soldas e pequenos fios de ligação.
 
-Figura 3 – Placa Padrão Ilhada.
-
 .. figure:: img/placa.png
+   :width: 30%
+   :align: center
+   :alt: Placa padrão ilhada
 
+   Figura 3 – Placa padrão ilhada.
    
 
 
@@ -60,7 +64,8 @@ Essa solução foi escolhida por ser mais simples e rápida, que era o que o gru
 Além disso, foi adicionado um conector do tipo fita, com o objetivo de facilitar ainda mais as conexões  que vinham da placa já existente no robô. Com isso, a integração entre as placas ficou mais organizada e confiável, reduzindo a quantidade de fios soltos e facilitando, caso necessário, ajustes durante os testes.
 
 Figura 4 – Placa com os componentes no robô.
-.. figure:: img/.png
+
+.. figure:: img/placaa.png
    :width: 30%
    :align: center
 
@@ -99,7 +104,7 @@ Por fim, também foi iniciada uma reorganização geral do código. Embora nem t
 Figura 5 – Loop Principal.
 
 .. figure:: img/loopprincipal.png
-   :width: 65%
+   :width: 35%
    :align: center
 
 
@@ -107,7 +112,7 @@ Figura 5 – Loop Principal.
 Figura 6 – Diagrama de Blocos Geral.
 
 .. figure:: img/diagramablocos.png
-   :width: 65%
+   :width: 35%
    :align: center
 
 Como Rodar o Código 
@@ -121,17 +126,51 @@ Testes
 Descrição dos testes/validações realizadas.
 
 
-(Outras subseções se necessário)
-================================
-
 
 Referências (links/datasheets/livros)
 *************************************
 
+ÅSTRÖM, Karl J.; HÄGGLUND, Tore. *PID Controllers:
+  Theory, Design, and Tuning*. 2. ed. Research Triangle Park:
+  Instrument Society of America, 1995.
+
+CASA DA ROBÓTICA. **Placa Fibra Ilhada 10x10 cm Padrão PCB Perfurada**. [S. l.], [s. d.]. Disponível em: https://www.casadarobotica.com/placa-fenolite-ilhada-10x10-cm-padrao-pcb-perfurada-arduino. Acesso em: 25 jun. 2026.
+
+ INVENSENSE. *MPU-6000 and MPU-6050 Register Map and
+  Descriptions*. Document RM-MPU-6000A-00.
+  Disponível em: `TDK InvenSense
+  <https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf>`_.
+  Acesso em: 12 jul. 2026.
+
+PLATFORMIO. *PlatformIO IDE for Visual Studio Code*.
+  Disponível em: `PlatformIO Documentation
+  <https://docs.platformio.org/en/latest/integration/ide/vscode.html>`_.
+  Acesso em: 12 jul. 2026.
+
+PLATFORMIO. *pio run: Run Project Targets*.
+  Disponível em: `PlatformIO Core Documentation
+  <https://docs.platformio.org/en/latest/core/userguide/cmd_run.html>`_.
+  Acesso em: 12 jul. 2026.
+
+STMICROELECTRONICS. *STM32F411xC/STM32F411xE:
+  Arm Cortex-M4 32-bit MCU*. Datasheet DS10314, rev. 8,
+  jan. 2024.
+  Disponível em: `STM32F411 Datasheet
+  <https://www.st.com/resource/en/datasheet/stm32f411ce.pdf>`_.
+  Acesso em: 12 jul. 2026.
+
+ STMICROELECTRONICS. *STM32F411xC/E Advanced Arm-based
+  32-bit MCUs: Reference Manual*. RM0383.
+  Disponível em: `STM32F411 Reference Manual
+  <https://www.st.com/resource/en/reference_manual/rm0383-stm32f411xce-advanced-armbased-32bit-mcus-stmicroelectronics.pdf>`_.
+  Acesso em: 12 jul. 2026
+
 SHENZHEN JINSHUNLAITE MOTOR CO., LTD. **37mm Round Spur Gear Motor**. [S. l.]: Aslong Motor, 2021. Disponível em: https://www.aslongdcmotor.com/photo/aslongdcmotor/document/26547/37mm%20Round%20Spur%20Gear%20Motor_PDF00.pdf. Acesso em: 25 jun. 2026.
 
 
-CASA DA ROBÓTICA. **Placa Fibra Ilhada 10x10 cm Padrão PCB Perfurada**. [S. l.], [s. d.]. Disponível em: https://www.casadarobotica.com/placa-fenolite-ilhada-10x10-cm-padrao-pcb-perfurada-arduino. Acesso em: 25 jun. 2026.
+
+
+
 
 
 
