@@ -104,7 +104,7 @@ Por fim, também foi iniciada uma reorganização geral do código. Embora nem t
 Figura 5 – Loop Principal.
 
 .. figure:: img/loopprincipal.png
-   :width: 35%
+   :width: 50%
    :align: center
 
 
@@ -112,7 +112,7 @@ Figura 5 – Loop Principal.
 Figura 6 – Diagrama de Blocos Geral.
 
 .. figure:: img/diagramablocos.png
-   :width: 35%
+   :width: 50%
    :align: center
 
 Como Rodar o Código 
