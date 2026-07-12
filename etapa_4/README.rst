@@ -131,39 +131,39 @@ Referências (links/datasheets/livros)
 *************************************
 
 ÅSTRÖM, Karl J.; HÄGGLUND, Tore. *PID Controllers:
-  Theory, Design, and Tuning*. 2. ed. Research Triangle Park:
-  Instrument Society of America, 1995.
+Theory, Design, and Tuning*. 2. ed. Research Triangle Park:
+Instrument Society of America, 1995.
 
 CASA DA ROBÓTICA. **Placa Fibra Ilhada 10x10 cm Padrão PCB Perfurada**. [S. l.], [s. d.]. Disponível em: https://www.casadarobotica.com/placa-fenolite-ilhada-10x10-cm-padrao-pcb-perfurada-arduino. Acesso em: 25 jun. 2026.
 
- INVENSENSE. *MPU-6000 and MPU-6050 Register Map and
-  Descriptions*. Document RM-MPU-6000A-00.
-  Disponível em: `TDK InvenSense
-  <https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf>`_.
-  Acesso em: 12 jul. 2026.
+INVENSENSE. *MPU-6000 and MPU-6050 Register Map and
+Descriptions*. Document RM-MPU-6000A-00.
+Disponível em: `TDK InvenSense
+<https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf>`_.
+Acesso em: 12 jul. 2026.
 
 PLATFORMIO. *PlatformIO IDE for Visual Studio Code*.
-  Disponível em: `PlatformIO Documentation
-  <https://docs.platformio.org/en/latest/integration/ide/vscode.html>`_.
-  Acesso em: 12 jul. 2026.
+Disponível em: `PlatformIO Documentation
+<https://docs.platformio.org/en/latest/integration/ide/vscode.html>`_.
+Acesso em: 12 jul. 2026.
 
 PLATFORMIO. *pio run: Run Project Targets*.
-  Disponível em: `PlatformIO Core Documentation
-  <https://docs.platformio.org/en/latest/core/userguide/cmd_run.html>`_.
-  Acesso em: 12 jul. 2026.
+Disponível em: `PlatformIO Core Documentation
+<https://docs.platformio.org/en/latest/core/userguide/cmd_run.html>`_.
+Acesso em: 12 jul. 2026.
 
 STMICROELECTRONICS. *STM32F411xC/STM32F411xE:
-  Arm Cortex-M4 32-bit MCU*. Datasheet DS10314, rev. 8,
-  jan. 2024.
-  Disponível em: `STM32F411 Datasheet
-  <https://www.st.com/resource/en/datasheet/stm32f411ce.pdf>`_.
-  Acesso em: 12 jul. 2026.
+Arm Cortex-M4 32-bit MCU*. Datasheet DS10314, rev. 8,
+jan. 2024.
+Disponível em: `STM32F411 Datasheet
+<https://www.st.com/resource/en/datasheet/stm32f411ce.pdf>`_.
+Acesso em: 12 jul. 2026.
 
- STMICROELECTRONICS. *STM32F411xC/E Advanced Arm-based
-  32-bit MCUs: Reference Manual*. RM0383.
-  Disponível em: `STM32F411 Reference Manual
-  <https://www.st.com/resource/en/reference_manual/rm0383-stm32f411xce-advanced-armbased-32bit-mcus-stmicroelectronics.pdf>`_.
-  Acesso em: 12 jul. 2026
+STMICROELECTRONICS. *STM32F411xC/E Advanced Arm-based
+32-bit MCUs: Reference Manual*. RM0383.
+Disponível em: `STM32F411 Reference Manual
+<https://www.st.com/resource/en/reference_manual/rm0383-stm32f411xce-advanced-armbased-32bit-mcus-stmicroelectronics.pdf>`_.
+Acesso em: 12 jul. 2026
 
 SHENZHEN JINSHUNLAITE MOTOR CO., LTD. **37mm Round Spur Gear Motor**. [S. l.]: Aslong Motor, 2021. Disponível em: https://www.aslongdcmotor.com/photo/aslongdcmotor/document/26547/37mm%20Round%20Spur%20Gear%20Motor_PDF00.pdf. Acesso em: 25 jun. 2026.
 
