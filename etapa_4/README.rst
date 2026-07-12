@@ -96,15 +96,24 @@ Com essas etapas, a estrutura do software passou a ficar mais próxima da arquit
 
 Por fim, também foi iniciada uma reorganização geral do código. Embora nem toda a estrutura tenha sido completamente refatorada, parte da lógica foi retirada do `main`, reduzindo a poluição do arquivo principal e tornando o programa mais fácil de entender. Essa organização é importante porque o projeto passou a envolver múltiplas rotinas simultâneas, como leitura dos encoders, cálculo de RPM, leitura do MPU6050, filtragem de sinais, controle dos motores e execução do LQR.
 
+Figura 5 – Loop Principal.
 
- Figura 5 – Diagrama de Blocos Geral.
-
-.. figure:: img/diagramablocos.png
+.. figure:: img/loopprincipal.png
    :width: 65%
    :align: center
 
 
 
+Figura 6 – Diagrama de Blocos Geral.
+
+.. figure:: img/diagramablocos.png
+   :width: 65%
+   :align: center
+
+Como Rodar o Código 
+====================
+
+Para executar o código, é necessário instalar a extensão PlatformIO IDE no Visual Studio Code. Em seguida, deve-se conectar a placa STM32F411 ao computador por meio do ST-Link e compilar o projeto clicando no ícone Build do PlatformIO.
 
 Testes
 ======
