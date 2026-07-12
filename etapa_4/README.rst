@@ -46,7 +46,7 @@ Como eram utilizados muitos cabos, as conexões  ficavam mais frágeis e confusa
 
 Por esse motivo, foi sugerida a utilização de uma placa perfurada de fenolite, também conhecida como  placa padrão ilhada. Essa placa já possui furos para a fixação dos componentes e pode ser cortada e ajustada para caber melhor dentro do robô. Diferente de uma PCB típica, na placa ilhada as trilhas são feitas manualmente,  por meio de soldas e pequenos fios de ligação.
 
-Figura3 – Placa Padrão Ilhada.
+Figura 3 – Placa Padrão Ilhada.
 
 .. figure:: img/placa.png
 
@@ -64,10 +64,6 @@ Figura 4 – Placa com os componentes no robô.
    :width: 30%
    :align: center
 
-Figura 5 – Conector fita utilizado.
-.. figure:: img/.png
-   :width: 30%
-   :align: center
 Com relação ao código, foi incluído o encoder 2 no cálculo da velocidade do robô. Anteriormente, apenas o encoder 1 era efetivamente utilizado, enquanto o valor medido pelo segundo encoder era lido, mas não participava da estimativa final.  Isso limitava a representação do movimento real do carro, pois os dois motores não apresentam exatamente o mesmo comportamento, mesmo quando recebem o mesmo sinal de PWM.
 
 Também foi feita uma reorganização na forma como as variáveis eram tratadas dentro do controle, centralizando  as contas principais em ponto fixo, utilizando valores normalizados, para reduzir o custo computacional e manter maior previsibilidade na execução do código. Nesse processo, foram revisadas as escalas usadas nas variáveis do controlador, incluindo os ajustes relacionados ao formato Q31, evitando que operações intermediárias causassem perda de precisão ou saturação indevida.
@@ -100,6 +96,12 @@ Com essas etapas, a estrutura do software passou a ficar mais próxima da arquit
 
 Por fim, também foi iniciada uma reorganização geral do código. Embora nem toda a estrutura tenha sido completamente refatorada, parte da lógica foi retirada do `main`, reduzindo a poluição do arquivo principal e tornando o programa mais fácil de entender. Essa organização é importante porque o projeto passou a envolver múltiplas rotinas simultâneas, como leitura dos encoders, cálculo de RPM, leitura do MPU6050, filtragem de sinais, controle dos motores e execução do LQR.
 
+
+ Figura 5 – Diagrama de Blocos Geral.
+
+ .. figure:: img/diagramablocos.png
+   :width: 65%
+   :align: center
 
 
 
