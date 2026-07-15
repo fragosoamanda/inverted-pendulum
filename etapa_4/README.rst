@@ -10,7 +10,7 @@ Visão geral
 ***********
 
 A etapa 4 consiste na fabricação da PCB e sua integração ao robô, junto com os ajustes e refinamentos necessários no software de controle desenvolvido na etapa anterior. Além disso,  é realizado os testes de estabilidade para avaliar o desempenho do sistema, identificar falhas de funcionamento e implementar as correções  para que o robô opere conforme o comportamento esperado ao final.
-A etapa 4 é a etapa mais curta, uma vez que essa se  refere apenas aos ajustes de partes ja realizadas nas etapas anteriores 
+A etapa 4 é a etapa mais curta, uma vez que essa se  refere apenas aos ajustes de partes ja realizadas nas etapas anteriores
 
 
 Desenvolvimento
@@ -25,7 +25,7 @@ Para resolver isso, foram adicionados conectores na placa. Com essa alteração,
 Durante essa etapa também foi identificado outro problema relacionado aos encoders dos motores, que não estavam funcionando. Inicialmente, acreditava-se que o erro poderia estar no código, pois na primeira vez que testamos eles estavam funcionando. Porém, ao analisar a placa e comparar as conexões com o datasheet do fabricante, verificou-se que a pinagem indicada não correspondia ao comportamento real observado.
 
 Isso ficou mais claro ao testar outro motor, no qual foi possível observar o acionamento de uma luz indicativa que não acendia no motor instalado no robô. A partir disso, as conexões foram  alteradas. Após a correção da ligação dos pinos, os encoders passaram a funcionar, mostrando que o problema não estava no software, mas sim na conexão elétrica feita com base em uma pinagem incorreta.
-  
+
 .. figure:: img/conAntigas.png
    :width: 35%
    :align: center
@@ -54,7 +54,7 @@ Por esse motivo, foi sugerida a utilização de uma placa perfurada de fenolite,
    :alt: Placa padrão ilhada
 
    Figura 3 – Placa padrão ilhada.
-   
+
 
 
 Como o esquemático da placa já havia sido desenvolvido no KiCad, a montagem nessa placa foi feita seguindo as conexões já definidas anteriormente. Dessa forma, foi necessário apenas analisar o esquemático e reproduzir manualmente as ligações entre os componentes.
@@ -115,7 +115,7 @@ Figura 6 – Diagrama de Blocos Geral.
    :width: 50%
    :align: center
 
-Como Rodar o Código 
+Como Rodar o Código
 ====================
 
 Para executar o código, é necessário instalar a extensão PlatformIO IDE no Visual Studio Code. Em seguida, deve-se conectar a placa STM32F411 ao computador por meio do ST-Link e compilar o projeto clicando no ícone Build do PlatformIO.
@@ -125,11 +125,70 @@ Testes
 
 Descrição dos testes/validações realizadas.
 
+O código foi estruturado de forma modular, de modo a permitir a validação de cada componente antes de se avançar para a etapa seguinte.
 
+Medição do RPM (Encoder)
+-------------------------
+
+Para verificar a medição de velocidade, aplicou-se um PWM constante aos motores e utilizaram-se as funções de ``debug_print`` para exibir a seguinte tabela:
+
+Figura 7 – medida do RPM.
+
+.. figure:: img/RPM.jpg
+   :width: 50%
+   :align: center
+
+Os resultados de RPM médio são apresentados na coluna low e correspondem à média do contador do encoder ao longo de 100 ms, servindo como valor de referência para validar as outras medições.
+O primeiro valor de RPM (M1) é a medição “instantânea”, obtida a partir do tempo entre pulsos consecutivos.
+O campo filt corresponde ao valor de RPM que resulta da soma dos intervalos de tempo entre pulsos, oferecendo uma informação fiável e dinâmica para ser utilizada pelo controlador.
+
+Controle do RPM
+-------------------------
+
+Foram realizados testes de resposta ao degrau e de regime permanente para avaliar o desempenho do controlador de velocidade.
+
+Figura 8 – Resposta do RPM a um degrau de 0 a 50 RPM
+
+.. figure:: img/subida_RPM.png
+   :width: 50%
+   :align: center
+
+Figura 9 – RPM alvo em regime com dois motores
+
+.. figure:: img/RPM_regime.png
+   :width: 50%
+   :align: center
+
+Figura 10 – partida
+
+.. figure:: img/partida_RPM.png
+   :width: 50%
+   :align: center
+
+
+Sensor de orientação (MPU6050)
+----------------------------------
+
+Realizaram-se movimentos suaves com o pêndulo e observou-se que os ângulos fornecidos pelo DMP apresentavam uma deriva excessiva, muito superior à que seria fisicamente possível, gerando valores incoerentes.
+
+Figura 11 – angulos estranhos do DMP
+
+.. figure:: img/dmp_falhando.jpg
+   :width: 50%
+   :align: center
+
+mpu calibrado e com pouca derivação do yaw
+
+Figura 12 – calibraração do MPU
+
+.. figure:: img/calibra_angulo.jpg
+   :width: 50%
+   :align: center
+
+Após a calibração manual do sensor, os ângulos tornaram-se estáveis e o yaw passou a derivar apenas alguns graus por minuto, tornando os dados utilizáveis para o controle.
 
 Referências (links/datasheets/livros)
 *************************************
-
 ÅSTRÖM, Karl J.; HÄGGLUND, Tore. *PID Controllers:
 Theory, Design, and Tuning*. 2. ed. Research Triangle Park:
 Instrument Society of America, 1995.
@@ -166,11 +225,3 @@ Disponível em: `STM32F411 Reference Manual
 Acesso em: 12 jul. 2026
 
 SHENZHEN JINSHUNLAITE MOTOR CO., LTD. **37mm Round Spur Gear Motor**. [S. l.]: Aslong Motor, 2021. Disponível em: https://www.aslongdcmotor.com/photo/aslongdcmotor/document/26547/37mm%20Round%20Spur%20Gear%20Motor_PDF00.pdf. Acesso em: 25 jun. 2026.
-
-
-
-
-
-
-
-
